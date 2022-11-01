@@ -63,7 +63,6 @@ public class Key extends AdvancedActor
      */
     private void check_player()
     {
-        System.out.println(isTouching(Players.class));
         if(isTouching(Players.class) && !this.active)
         {
             this.active=true;

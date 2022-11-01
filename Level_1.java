@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 /**
- * Nível 1
+ * NÃ­vel 1
  */
 public class Level_1 extends World implements InterfaceAreaSound
 {
@@ -13,7 +13,7 @@ public class Level_1 extends World implements InterfaceAreaSound
     private final int MAX_TIMER_NORM=(2*60*50);
     private final int MAX_TIMER_HARD=(1*60*50);
     private AreaSound b1,b2,b3,passeio1,passeio2,passeio3;
-    
+    private ChangeWorld change;
     /**
      * Constructor for objects of class Level_1.
      */
@@ -22,11 +22,8 @@ public class Level_1 extends World implements InterfaceAreaSound
         super(1700, 900, 1); 
         this.setBackground("Mapa1final_teste.png");
         Game.setAtualPlayerWorld(this);
-        this.preparePlayers();
-        this.prepareWalls();
-        this.preparePuzsles();
-        this.prepareAmbiente(); 
-        this.prepareDecors();
+        Greenfoot.setSpeed(50);
+        this.prepare();
         setPaintOrder(Light.class,Tooltip.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
     
@@ -35,6 +32,21 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.startTimer();
         this.puzle1.atAct();
         this.puzle2.atAct();
+        this.finish();
+    }
+    
+    private void prepare(){
+        this.preparePlayers();
+        this.prepareWalls();
+        this.preparePuzzles();
+        this.prepareEnviorment(); 
+        this.prepareDecors();
+    }
+    
+    private void finish(){
+        if(this.change.isTouchingPlayer()){
+            Greenfoot.setWorld(new End());
+        }
     }
     
     private void startTimer()
@@ -107,7 +119,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
     
-    private void prepareAmbiente(){
+    private void prepareEnviorment(){
         //colocando escuro
         Blackout a  = new Blackout();
         a.getImage().setTransparency(Game.getBrightness());
@@ -118,9 +130,12 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.b1 = new AreaSound(197,45,560,834,"walking_wood.mp3");
         this.b2 = new AreaSound(895,77,554,217,"walking_wood.mp3");
         this.b3 = new AreaSound(942,630,459,178,"walking_wood.mp3");
+        //finish line
+        change=new ChangeWorld(200,10);
+        addObject(change,1700, 450);
     }
     
-    private void preparePuzsles(){
+    private void preparePuzzles(){
         Ball ball = new Ball();
         addObject(ball,350,600);
         this.puzle1 = new Puzel_Level_1_lightcomb(this);

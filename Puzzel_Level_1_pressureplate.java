@@ -1,7 +1,7 @@
 import greenfoot.*;
 import java.util.ArrayList;
 /**
- * O Segundo puzzle do nÌvel 1
+ * O Segundo puzzle do n√≠vel 1
  */
 public class Puzzel_Level_1_pressureplate extends Puzzle 
 {
@@ -50,7 +50,7 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
     }
     
     /**
-     * Verifica se a placa de press„o 1 est· ativada.
+     * Verifica se a placa de press√£o 1 est√° ativada.
      */
     private void checkplate1()
     {
@@ -78,7 +78,7 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
     }
     
     /**
-     * Verifica se o puzle est· completo
+     * Verifica se o puzle est√° completo
      */
     protected void check_complete()
     {
@@ -96,7 +96,7 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
     }
     
     /**
-     * Devolve se est· metade completo
+     * Devolve se est√° metade completo
      */
     public boolean isHalfComplete()
     {
