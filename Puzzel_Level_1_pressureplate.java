@@ -45,8 +45,8 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
         
         this.door_building2 = new Door("Puzzle 2", "interactables\\door2.png", "door1_open.mp3","door1_close.mp3", false, -1, 0);
         this.door_building3 = new Door("Puzzle 2", "interactables\\door2.png", "door1_open.mp3","door1_close.mp3", false, -1, 0);
-        this.getWorld().addObject(this.door_building2,1168,276);
-        this.getWorld().addObject(this.door_building3,1167,635);
+        this.getWorld().addObject(this.door_building2,1170,276);
+        this.getWorld().addObject(this.door_building3,1169,635);
     }
     
     /**

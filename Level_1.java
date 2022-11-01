@@ -13,7 +13,7 @@ public class Level_1 extends World implements InterfaceAreaSound
     private final int MAX_TIMER_NORM=(2*60*50);
     private final int MAX_TIMER_HARD=(1*60*50);
     private AreaSound b1,b2,b3,passeio1,passeio2,passeio3;
-    
+    private ChangeWorld change;
     /**
      * Constructor for objects of class Level_1.
      */
@@ -22,11 +22,8 @@ public class Level_1 extends World implements InterfaceAreaSound
         super(1700, 900, 1); 
         this.setBackground("Mapa1final_teste.png");
         Game.setAtualPlayerWorld(this);
-        this.preparePlayers();
-        this.prepareWalls();
-        this.preparePuzsles();
-        this.prepareAmbiente(); 
-        this.prepareDecors();
+        Greenfoot.setSpeed(50);
+        this.prepare();
         setPaintOrder(Light.class,Tooltip.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
     
@@ -35,6 +32,21 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.startTimer();
         this.puzle1.atAct();
         this.puzle2.atAct();
+        this.finish();
+    }
+    
+    private void prepare(){
+        this.preparePlayers();
+        this.prepareWalls();
+        this.preparePuzzles();
+        this.prepareEnviorment(); 
+        this.prepareDecors();
+    }
+    
+    private void finish(){
+        if(this.change.isTouchingPlayer()){
+            Greenfoot.setWorld(new End());
+        }
     }
     
     private void startTimer()
@@ -82,32 +94,9 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\liscas.png") , 1665, 450);
         this.addObject( new Light("luzes\\luztorres_",1), 1662, 320  );
         this.addObject( new Light("luzes\\luztorres_",1), 30, 320  );
-        this.addObject( new Actor_Decor("decors\\amongus_dead.png") , 970, 210);
-        this.addObject( new Wall("decors\\computer.png") , 300, 765);
-        this.addObject( new Wall("decors\\computer.png") , 400, 765);
-        this.addObject( new Actor_Decor("decors\\bed.png") , 1365, 700);
-        this.addObject( new Actor_Decor("decors\\bed.png") , 1265, 700);
-        this.addObject( new Actor_Decor("decors\\bed.png") , 1365, 150);
-        this.addObject( new Actor_Decor("decors\\bed.png") , 1265, 150);
-        this.addObject( new Actor_Decor("decors\\banco.png") , 1000, 315);
-        this.addObject( new Wall("decors\\tree11.png") , 1350, 540);
-        this.addObject( new Wall("decors\\tree11.png") , 1000, 540);
-        this.addObject( new Actor_Decor("decors\\bin.png") , 1100, 665);
-        this.addObject( new Actor_Decor("decors\\dumbells.png") , 1410, 315);
-        this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 155);
-        this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 240);
-        this.addObject( new Actor_Decor("decors\\phone.png") , 1100, 290);
-        this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 505);
-        this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 383);
-        this.addObject( new Wall("decors\\coffe.png") , 680, 70);
-        this.addObject( new Wall("decors\\rex.png") , 150, 280);
-        this.addObject( new Wall("decors\\rex.png") , 150, 600);
-        this.addObject( new Wall("decors\\gnome.png") , 773, 350);
-        this.addObject( new Wall("decors\\gnome.png") , 773, 530);
-        this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
     
-    private void prepareAmbiente(){
+    private void prepareEnviorment(){
         //colocando escuro
         Blackout a  = new Blackout();
         a.getImage().setTransparency(Game.getBrightness());
@@ -118,9 +107,12 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.b1 = new AreaSound(197,45,560,834,"walking_wood.mp3");
         this.b2 = new AreaSound(895,77,554,217,"walking_wood.mp3");
         this.b3 = new AreaSound(942,630,459,178,"walking_wood.mp3");
+        //finish line
+        change=new ChangeWorld(200,10);
+        addObject(change,1700, 450);
     }
     
-    private void preparePuzsles(){
+    private void preparePuzzles(){
         Ball ball = new Ball();
         addObject(ball,350,600);
         this.puzle1 = new Puzel_Level_1_lightcomb(this);
