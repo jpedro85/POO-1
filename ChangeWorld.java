@@ -11,6 +11,7 @@ public class ChangeWorld extends Actor
     public ChangeWorld(int altura,int largura){
         this.setImage(new GreenfootImage(largura,altura));
     }  
+    
     public boolean isTouchingPlayer(){
         return isTouching(Players.class);
     }

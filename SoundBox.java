@@ -17,6 +17,12 @@ public abstract class SoundBox
         return soundList_String.indexOf(sound);
     }
     
+    public static void setSoundVolume(String sound,int volume)
+    {
+        soundList_String.indexOf(sound);
+        soundList.get( soundList_String.indexOf(sound) ).setVolume(  (volume > 0 && volume <= 100 )? volume : 100  );
+    }
+    
     /**
      * Adiciona o som com filename "sound" a lista de sons. 
      * Filename passa a ser uma referencia para o som.

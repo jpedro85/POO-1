@@ -17,14 +17,28 @@ public class End extends World
         super(1700, 900, 1); 
         this.setBackground("menu_background.png");
         this.create_window_end();
+        this.start_sound();
     }
     
     public void act()
     {
+        this.newGame();
+    }
+    
+    private void newGame()
+    {
         if(this.button.isPressed())
         {
+            SoundBox.stop_AllSounds();
+            SoundBox.clearSounds();
             Greenfoot.setWorld( new Menu() );
         }
+    }
+    
+    private void start_sound()
+    {
+        SoundBox.addSound("menu_music.mp3");
+        SoundBox.playLoop_AllSounds();
     }
 
     private void create_window_end()
@@ -59,5 +73,14 @@ public class End extends World
         TextBox tb_player2_chaves = new TextBox( 200 ,30 ,20 , 1,"Chaves : " + String.valueOf( Game.getChavesPlayer2() ) ,UIElement.FONT2_DEFAUT ,UIElement.TEXTCOLOR_DOURADO );
         tb_player1_chaves.setEditable(false);
         this.windowEnd.add_Actor(tb_player2_chaves,380, 326);
+        
+        TextBox tb_tempo = new TextBox( 120 ,30 ,7 , 1,"TEMPO: ",new Font("Segoe Script",true,false,25) ,Color.BLACK );
+        tb_tempo.setEditable(false);
+        this.windowEnd.add_Actor(tb_tempo,300, 390);
+            
+        String texto = Game.getFinal_Time()/(50*60)+" : "+(Game.getFinal_Time()%(60*50))/50 ;
+        TextBox tb_time = new TextBox( 200 ,30 ,20 , 1, texto ,UIElement.FONT2_DEFAUT , Color.RED );
+        tb_time.setEditable(false);
+        this.windowEnd.add_Actor(tb_time,480, 390);
     }
 }

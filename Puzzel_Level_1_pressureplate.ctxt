@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Puzzel_Level_1_pressureplate
-comment0.text=\r\n\ O\ Segundo\ puzzle\ do\ n\u00C3\u00ADvel\ 1\r\n
+comment0.text=\r\n\ O\ Segundo\ puzzle\ do\ n\u00EDvel\ 1\r\n
 comment1.params=world
 comment1.target=Puzzel_Level_1_pressureplate(greenfoot.World)
 comment1.text=\r\n\ Cria\ um\ novo\ puzle.\r\n
@@ -12,14 +12,14 @@ comment3.target=void\ start_objects()
 comment3.text=\r\n\ Inicia\ os\ objetos\ do\ puzle.\r\n
 comment4.params=
 comment4.target=void\ checkplate1()
-comment4.text=\r\n\ Verifica\ se\ a\ placa\ de\ press\u00C3\u00A3o\ 1\ est\u00C3\u00A1\ ativada.\r\n
+comment4.text=\r\n\ Verifica\ se\ a\ placa\ de\ press\u00E3o\ 1\ est\u00E1\ ativada.\r\n
 comment5.params=
 comment5.target=java.util.ArrayList\ getLastUserList()
 comment5.text=\r\n\ Devolve\ uma\ lista\ com\ os\ players\ que\ utilizar\ os\ objetos\ do\ puzle\ logo\ antes\ de\ estar\ completo.\r\n
 comment6.params=
 comment6.target=void\ check_complete()
-comment6.text=\r\n\ Verifica\ se\ o\ puzle\ est\u00C3\u00A1\ completo\r\n
+comment6.text=\r\n\ Verifica\ se\ o\ puzle\ est\u00E1\ completo\r\n
 comment7.params=
 comment7.target=boolean\ isHalfComplete()
-comment7.text=\r\n\ Devolve\ se\ est\u00C3\u00A1\ metade\ completo\r\n
+comment7.text=\r\n\ Devolve\ se\ est\u00E1\ metade\ completo\r\n
 numComments=8

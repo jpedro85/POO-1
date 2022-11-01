@@ -13,6 +13,7 @@ public final class Game
     private static int player1score = 0, player2score = 0 ;
     private static int chaves1,chaves2;
     private static InterfaceAreaSound world;
+    private static int final_time;
 
     /**
      * Inicias as variaveis.
@@ -100,6 +101,22 @@ public final class Game
     public static void setAtualPlayerWorld(InterfaceAreaSound w)
     {
         world = w;
+    }
+    
+    /**
+     * Altera o tempo final.
+     */
+    public static void setFinal_Time(int time)
+    {
+        final_time = time;
+    }
+    
+    /**
+     * Devolve o tempo final.
+     */
+    public static int getFinal_Time()
+    {
+        return final_time;
     }
     
     /**
@@ -276,7 +293,7 @@ public final class Game
         else if( player.getClass() == Player2.class)
             chaves2++;
     }
-
+    
     /**
      * Retorna a dificuldade do jogo.
      */

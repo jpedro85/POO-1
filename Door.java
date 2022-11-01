@@ -47,7 +47,7 @@ public class Door extends AdvancedActor
     {
         if(this.chaves == 0)
         {
-            this.getUser().showTooltip("Pareçe que consigo abir esta porta completando o " + this.getTooltipText() );
+            this.getUser().showTooltip("Parece que consigo abir esta porta completando o " + this.getTooltipText() );
         }
         else if( Game.getChaves() < this.chaves)
         {

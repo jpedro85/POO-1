@@ -50,19 +50,19 @@ public class Ball extends AdvancedActor
             {
                 case UP:
                     this.setLocation(this.actor2.getX(), this.actor2.getY() - this.actor2.getImage().getHeight()/2 );
-                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,Blackout.class,Players.class,Ball.class,Pressure_Plate.class);
+                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Players.class,Ball.class,Pressure_Plate.class);
                     break;
                 case DOWN:
                     this.setLocation(this.actor2.getX(), this.actor2.getY() + this.actor2.getImage().getHeight()/2 );
-                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
+                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
                     break;
                 case RIGHT:
                     this.setLocation(this.actor2.getX() + this.actor2.getImage().getWidth()/2 , this.actor2.getY() );
-                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
+                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
                     break;
                 case LEFT:
                     this.setLocation(this.actor2.getX() - this.actor2.getImage().getWidth()/2 , this.actor2.getY() );
-                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
+                    this.getWorld().setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Ball.class,Players.class,Pressure_Plate.class);
                     break;
             }
         }

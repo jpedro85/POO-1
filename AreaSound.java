@@ -26,7 +26,8 @@ public class AreaSound
      */
     public boolean isIn(Actor actor)
     {
-        return (actor.getX() >= this.x && actor.getX() <= this.x + this.width) && (actor.getY() >= this.y && actor.getY() <= this.y + this.height);
+        return (actor.getX() >= this.x && actor.getX() <= this.x + this.width) && 
+                (actor.getY()+ actor.getImage().getHeight()/2 >= this.y && actor.getY()+ actor.getImage().getHeight()/2 <= this.y + this.height);
     }
     
     /**
