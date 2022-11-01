@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Collision
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collision\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ check_Collision()
+comment2.params=actor_move\ actor_fixed
+comment2.target=void\ Collision_TOTAL(Collision,\ Collision)
+comment3.params=actor_hover\ actor_Under
+comment3.target=void\ Collision_HOVER_OR_UNDER(Collision,\ Collision)
+comment4.params=
+comment4.target=java.util.List\ getActorInRangeList()
+comment5.params=list
+comment5.target=java.util.List\ setActorInRangeList(java.util.List)
+numComments=6

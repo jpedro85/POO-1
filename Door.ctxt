@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Door
+comment0.text=\r\n\ Cria\ uma\ porta.\r\n
+comment1.params=text\ img\ sound_open\ sound_close\ vertical\ delta\ chaves
+comment1.target=Door(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean,\ int,\ int)
+comment1.text=\r\n\ Inicia\ as\ variaveis.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Executado\ a\ cada\ tick;\r\n
+comment3.params=
+comment3.target=void\ action()
+comment3.text=\r\n\ Execuado\ quando\ o\ players\ usa\ este\ actor.\r\n
+comment4.params=
+comment4.target=void\ open()
+comment4.text=\r\n\ Coloca\ a\ porta\ a\ brir\ a\ porta\ \ \r\n
+comment5.params=
+comment5.target=void\ close()
+comment5.text=\r\n\ Coloca\ a\ porta\ a\ fechar\ a\ porta\ \ \r\n
+comment6.params=
+comment6.target=void\ animate()
+comment6.text=\r\n\ Anima\ a\ porta\ afechar\ e\ a\ abrir.\r\n
+comment7.params=
+comment7.target=boolean\ isOpen()
+comment7.text=\r\n\ Retorna\ true\ se\ a\ porta\ esta\ aberta.\r\n
+numComments=8

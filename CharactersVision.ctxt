@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=CharactersVision
+comment0.text=\r\n\ Oferece\ dire\u00E7\u00F5es\ de\ vis\u00E3o.\r\n
+comment1.params=str
+comment1.target=CharactersVision(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

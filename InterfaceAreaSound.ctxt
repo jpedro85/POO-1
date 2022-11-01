@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=InterfaceAreaSound
+comment0.text=\r\n\ Para\ os\ niveis\ que\ tem\ soms.\r\n
+comment1.params=
+comment1.target=java.util.ArrayList\ getAreaSounds()
+numComments=2

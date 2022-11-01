@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Actor_Decor
+comment0.text=\r\n\ Permite\ criar\ um\ ator\ padr\u00E3o\ com\ uma\ imagem\ \u00E1\ escolha.\r\n
+comment1.params=img
+comment1.target=Actor_Decor(java.lang.String)
+comment1.text=\r\n\ Cria\ o\ ator\r\n
+numComments=2

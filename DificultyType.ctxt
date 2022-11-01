@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=DificultyType
+comment0.text=\r\n\ Oferece\ tipos\ de\ dificuldade.\r\n
+comment1.params=str
+comment1.target=DificultyType(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Button
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Button1\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=background\ textColor\ text
+comment1.target=Button(greenfoot.Color,\ greenfoot.Color,\ java.lang.String)
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment2.params=background_defaut\ background_hover
+comment2.target=Button(java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ mouse_CLick()
+comment5.params=
+comment5.target=void\ on_Animation()
+comment6.params=text
+comment6.target=void\ setText(java.lang.String)
+comment7.params=text\ color
+comment7.target=void\ setText(java.lang.String,\ greenfoot.Color)
+comment8.params=image\ text\ width\ height\ color
+comment8.target=void\ drawtext(greenfoot.GreenfootImage,\ java.lang.String,\ int,\ int,\ greenfoot.Color)
+comment9.params=
+comment9.target=java.lang.String\ getText()
+numComments=11

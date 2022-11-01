@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Puzel_Level_1_lightcomb
+comment0.text=\r\n\ O\ primeiro\ Puzle\ do\ n\u00EDvel\ 1.\r\n
+comment1.params=world
+comment1.target=Puzel_Level_1_lightcomb(greenfoot.World)
+comment1.text=\r\n\ Cria\ um\ novo\ puzle.\r\n
+comment2.params=
+comment2.target=void\ atAct()
+comment2.text=\r\n\ Para\ chamar\ a\ cada\ tick\ no\ World.act().\r\n
+comment3.params=
+comment3.target=void\ update_actions()
+comment3.text=\r\n\ Verifica\ as\ a\u00E7\u00F5es\ do\ player\ sobre\ o\ puzle.\r\n
+comment4.params=
+comment4.target=void\ check_complete()
+comment4.text=\r\n\ Verifica\ se\ o\ puzle\ est\u00E1\ completo\r\n
+comment5.params=
+comment5.target=java.util.ArrayList\ getLastUserList()
+comment5.text=\r\n\ Devolve\ uma\ lista\ com\ os\ players\ que\ utilizar\ os\ objetos\ do\ puzle\ logo\ antes\ de\ estar\ completo.\r\n
+comment6.params=
+comment6.target=void\ start_objects()
+comment6.text=\r\n\ Inicia\ os\ objetos\ do\ puzle.\r\n
+numComments=7

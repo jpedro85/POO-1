@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Rain
+comment0.text=\r\n\ Chuva\r\n
+comment1.params=base_filename_\ n_img\ delay
+comment1.target=Rain(java.lang.String,\ int,\ int)
+numComments=2

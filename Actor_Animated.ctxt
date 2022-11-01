@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Actor_Animated
+comment0.text=\r\n\ Permite\ criar\ um\ ator\ padr\u00E3o\ com\ uma\ anima\u00E7\u00E3o.\r\n
+comment1.params=base_filename_\ n_img\ delay
+comment1.target=Actor_Animated(java.lang.String,\ int,\ int)
+comment1.text=\r\n\ Inicia.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Executado\ cada\ tick.\r\n
+comment3.params=
+comment3.target=void\ animate()
+comment3.text=\r\n\ Faz\ a\ anima\u00E7\u00E3o.\r\n
+comment4.params=base_filename\ n_img
+comment4.target=void\ loadImages(java.lang.String,\ int)
+comment4.text=\r\n\ Carrega\ a(s)\ imagem(s).\r\n
+numComments=5

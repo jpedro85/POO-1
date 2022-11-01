@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Puzzle
+comment0.text=\r\n\ O\r\n
+comment1.params=points
+comment1.target=void\ setPoints(int)
+comment10.params=
+comment10.target=boolean\ isComplete()
+comment11.params=
+comment11.target=boolean\ isScoreAdded()
+comment2.params=
+comment2.target=java.util.ArrayList\ getLastUserList()
+comment3.params=
+comment3.target=void\ atAct()
+comment4.params=
+comment4.target=void\ check_complete()
+comment5.params=world
+comment5.target=void\ setWorld(greenfoot.World)
+comment6.params=
+comment6.target=greenfoot.World\ getWorld()
+comment7.params=
+comment7.target=int\ getPoints()
+comment8.params=added
+comment8.target=void\ setScoreAdded(boolean)
+comment9.params=complete
+comment9.target=void\ setComplete(boolean)
+numComments=12

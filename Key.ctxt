@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Key
+comment0.text=\r\n\ Chase\ nessess\u00E1rio\ para\ abrir\ portas.\r\n
+comment1.params=tooltip_text
+comment1.target=Key(java.lang.String)
+comment1.text=\r\n\ Construtor\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Chamado\ a\ cada\ tick.\r\n
+comment3.params=
+comment3.target=void\ action()
+comment3.text=\r\n\ A\u00E7\u00E3o\ quando\ o\ jogador\ clica\ no\ but\u00E3o\ de\ use.\r\n
+comment4.params=
+comment4.target=void\ on_Animate()
+comment4.text=\r\n\ Faz\ a\ anima\u00E7\u00E3o\ quando\ se\ pega\ a\ chave.\r\n
+comment5.params=
+comment5.target=void\ check_player()
+comment5.text=\r\n\ Verifica\ se\ um\ player\ apanhou\ a\ chave.\r\n
+numComments=6

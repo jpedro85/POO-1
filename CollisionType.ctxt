@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CollisionType
+comment0.text=\r\n\ Oferece\ tipos\ de\ colisao.\r\n
+comment1.params=str\ value
+comment1.target=CollisionType(java.lang.String,\ int)
+comment2.params=
+comment2.target=int\ toInt()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

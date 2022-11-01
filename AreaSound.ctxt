@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=AreaSound
+comment0.text=\r\n\ Permite\ atribuir\ um\ som\ a\ uma\ area\ do\ mapa.\r\n
+comment1.params=x\ y\ width\ height\ sound
+comment1.target=AreaSound(int,\ int,\ int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ AreaSound\r\n
+comment2.params=actor
+comment2.target=boolean\ isIn(greenfoot.Actor)
+comment2.text=\r\n\ Retorna\ true\ se\ o\ actor\ estiver\ dentro\ da\ \u00E1rrea.\r\n
+comment3.params=
+comment3.target=java.lang.String\ getSound()
+comment3.text=\r\n\ Retorna\ o\ filename\ do\ som.\r\n
+numComments=4
