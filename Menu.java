@@ -26,6 +26,7 @@ public class Menu extends World
         Game.resetPlayesDefaults();
         this.start_Buttons();
         Greenfoot.start();
+       // this.start_sound();
     }
     
     public void act()
@@ -42,6 +43,12 @@ public class Menu extends World
             this.check_optn_fechar();
             
         this.check_m_play(); //pota play
+    }
+    
+    private void start_sound()
+    {
+        SoundBox.addSound("menu_music.mp3");
+        SoundBox.playLoop_AllSounds();
     }
     
     private void check_m_play()
@@ -102,6 +109,7 @@ public class Menu extends World
             Game.setPlayer2Name( this.tb_personage2.getText() );
             Game.setPlayer1_personage( this.dp_personage1.getOptn() );
             Game.setPlayer2_personage( this.dp_personage2.getOptn() );
+            SoundBox.setSoundVolume("menu_music.mp3", Game.getVolume() );
             this.updateSound();
         }
     }

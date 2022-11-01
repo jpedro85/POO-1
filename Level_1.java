@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 /**
- * NÃ­vel 1
+ * Nível 1
  */
 public class Level_1 extends World implements InterfaceAreaSound
 {
@@ -12,8 +12,11 @@ public class Level_1 extends World implements InterfaceAreaSound
     private final int MAX_TIMER_EZ=(5*60*50);
     private final int MAX_TIMER_NORM=(2*60*50);
     private final int MAX_TIMER_HARD=(1*60*50);
-    private AreaSound b1,b2,b3,passeio1,passeio2,passeio3;
-    private ChangeWorld change;
+    private AreaSound b1,b2,b3;
+    private AreaSound passeio1,passeio2,passeio3,passeio4;
+    private AreaSound grass1,grass2,grass3,grass4,grass5,grass6,grass7,grass8,grass9,grass10,grass11,grass12;
+    private TextBox chavedisplay;
+    
     /**
      * Constructor for objects of class Level_1.
      */
@@ -24,29 +27,21 @@ public class Level_1 extends World implements InterfaceAreaSound
         Game.setAtualPlayerWorld(this);
         Greenfoot.setSpeed(50);
         this.prepare();
-        setPaintOrder(Light.class,Tooltip.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
+        setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
     
     public void act()
     {
         this.startTimer();
+        this.chavesShow();
         this.puzle1.atAct();
         this.puzle2.atAct();
-        this.finish();
     }
     
-    private void prepare(){
-        this.preparePlayers();
-        this.prepareWalls();
-        this.preparePuzzles();
-        this.prepareEnviorment(); 
-        this.prepareDecors();
-    }
-    
-    private void finish(){
-        if(this.change.isTouchingPlayer()){
-            Greenfoot.setWorld(new End());
-        }
+    private void chavesShow()
+    {
+        this.chavedisplay.setText( String.valueOf( Game.getChaves() ) );
+        this.chavedisplay.update_Text();
     }
     
     private void startTimer()
@@ -86,7 +81,24 @@ public class Level_1 extends World implements InterfaceAreaSound
         }
     }
     
+    private void prepare()
+    {
+        this.preparePlayers();
+        this.prepareWalls();
+        this.preparePuzzles();
+        this.prepareAmbiente(); 
+        this.prepareDecors();
+    }
+    
     private void prepareDecors(){
+        this.chavedisplay = new TextBox("textboxes\\textbox_chaves.png","textboxes\\textbox_chaves.png",10,60);
+        this.chavedisplay.setFont( new Font("Segoe Script",true,false,30) );
+        this.chavedisplay.setTextColor( new Color(255,212,60) );
+        this.chavesShow();
+        this.chavedisplay.setEditable(false);
+        this.addObject( this.chavedisplay , 130 ,100);
+        this.chavedisplay.setRelativeLocation(0, 0);
+        
         this.addObject( new Wall("decors\\tooredoportaocima.png") , 1662, 298);
         this.addObject( new Wall("decors\\tooredoportao_baixo.png") , 1662, 602);
         this.addObject( new Wall("decors\\tooredoportaocima.png") , 30, 298);
@@ -119,20 +131,36 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
     
-    private void prepareEnviorment(){
+    private void prepareAmbiente(){
         //colocando escuro
         Blackout a  = new Blackout();
         a.getImage().setTransparency(Game.getBrightness());
         addObject( a , 850, 450);
         //colocando chuva
         addObject( new Rain("ambiente\\chuva\\chuva_",3,2) , 850, 450);
-        //sound
+        //sound wood
         this.b1 = new AreaSound(197,45,560,834,"walking_wood.mp3");
         this.b2 = new AreaSound(895,77,554,217,"walking_wood.mp3");
         this.b3 = new AreaSound(942,630,459,178,"walking_wood.mp3");
-        //finish line
-        change=new ChangeWorld(200,10);
-        addObject(change,1700, 450);
+        //sound stone
+        this.passeio1 = new AreaSound(4,430,186,48,"walking_stone.mp3");
+        this.passeio2 = new AreaSound(762,430,935,48,"walking_stone.mp3");
+        this.passeio3 = new AreaSound(1152,302,40,122,"walking_stone.mp3");
+        this.passeio4 = new AreaSound(1152,478,40,144,"walking_stone.mp3");
+        //sound wood
+        this.grass1 = new  AreaSound(0,0,190,427,"walking_grass.mp3");
+        this.grass2 = new  AreaSound(0,475,190,427,"walking_grass.mp3");
+        this.grass3 = new  AreaSound(759,0,133,427,"walking_grass.mp3");
+        this.grass4 = new  AreaSound(759,475,178,427,"walking_grass.mp3");
+        this.grass5 = new  AreaSound(938,813,468,150,"walking_grass.mp3");
+        this.grass6 = new  AreaSound(892,0,560,70,"walking_grass.mp3");
+        this.grass7 = new  AreaSound(1452,0,427,413,"walking_grass.mp3");
+        this.grass8 = new  AreaSound(1406,475,293,424,"walking_grass.mp3");
+        //sound grass
+        this.grass9 = new  AreaSound(891,297,254,129,"walking_grass.mp3");
+        this.grass10 = new  AreaSound(1196,297,254,129,"walking_grass.mp3");
+        this.grass11 = new  AreaSound(938,475,210,150,"walking_grass.mp3");
+        this.grass12 = new  AreaSound(1195,475,210,150,"walking_grass.mp3");
     }
     
     private void preparePuzzles(){
@@ -142,6 +170,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.puzle2 = new Puzzel_Level_1_pressureplate(this);
         //porta final
         addObject(new Door("","interactables\\portao.png","portao_open_close.mp3","portao_open_close.mp3",true,1,2),1650,450);
+        //chaves
         addObject(new Key(""),970,140);
         addObject(new Key(""),760,900);
     }
@@ -215,9 +244,25 @@ public class Level_1 extends World implements InterfaceAreaSound
     public ArrayList<AreaSound> getAreaSounds()
     {
         ArrayList<AreaSound> areaSoundList = new ArrayList<>();
+        areaSoundList.add(this.grass1);
+        areaSoundList.add(this.grass2);
+        areaSoundList.add(this.grass3);
+        areaSoundList.add(this.grass4);
+        areaSoundList.add(this.grass5);
+        areaSoundList.add(this.grass6);
+        areaSoundList.add(this.grass7);
+        areaSoundList.add(this.grass8);
+        areaSoundList.add(this.grass9);
+        areaSoundList.add(this.grass10);
+        areaSoundList.add(this.grass11);
+        areaSoundList.add(this.grass12);
         areaSoundList.add(this.b1);
         areaSoundList.add(this.b2);
         areaSoundList.add(this.b3);
+        areaSoundList.add(this.passeio1);
+        areaSoundList.add(this.passeio2);
+        areaSoundList.add(this.passeio3);
+        areaSoundList.add(this.passeio4);
         return areaSoundList ;
     }
 }

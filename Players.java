@@ -31,6 +31,7 @@ public class Players extends Collision_Player
 
     private boolean moving,playing;
     private String walking_Sound;
+    private AreaSound areasound;
 
     //Constructor of character
     public Players ()
@@ -268,8 +269,11 @@ public class Players extends Collision_Player
             {
                 if(areaS.isIn(this))
                 {    
-                    if( !this.playing )
+                    if( !this.playing || areaS != this.areasound)
                     {
+                        if(this.areasound != null)
+                            SoundBox.stop( this.areasound.getSound() + this );
+                        
                         if(  SoundBox.getSound( areaS.getSound() + this ) != -1 )
                         {
                             SoundBox.stop( areaS.getSound() + this );
@@ -279,6 +283,7 @@ public class Players extends Collision_Player
                         this.walking_Sound = areaS.getSound() + this;
                         SoundBox.addSound( areaS.getSound() , this.walking_Sound );
                         SoundBox.playLoop( this.walking_Sound );
+                        this.areasound = areaS;
                         this.playing =true;
                     }
                 }
