@@ -17,19 +17,8 @@ public class TextBox extends UIElement
         this.start_vars();
         this.setCharLimit(char_limit);
         this.begin_wrinting = begin_wrinting;
-
         this.setBackground_Defaut( new GreenfootImage(width,height) );
-        /* this.getBackground_Defaut().setColor(Color.WHITE);
-        this.getBackground_Defaut().fill();
-        this.getBackground_Defaut().setColor(Color.BLACK);
-        this.getBackground_Defaut().drawRect(0,0,this.getBackground_Defaut().getWidth()-1,this.getBackground_Defaut().getHeight()-1);
-        */  
         this.setBackground_Selected( new GreenfootImage(width,height) );
-        /* this.getBackground_Selected().setColor(Color.WHITE);
-        this.getBackground_Selected().fill();
-        this.getBackground_Selected().setColor(Color.BLUE);
-        this.getBackground_Selected().drawRect(0,0,this.getBackground_Defaut().getWidth()-1,this.getBackground_Defaut().getHeight()-1);
-        */
         this.setTextColor(textColor);
         this.setFont(font);
         this.setImage(this.getBackground_Defaut());

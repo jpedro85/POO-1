@@ -26,7 +26,7 @@ public class Menu extends World
         Game.resetPlayesDefaults();
         this.start_Buttons();
         Greenfoot.start();
-       // this.start_sound();
+        this.start_sound();
     }
     
     public void act()
@@ -55,6 +55,8 @@ public class Menu extends World
     {
         if(this.m_play.isPressed())
         {
+            SoundBox.stop_AllSounds();
+            SoundBox.clearSounds();
             Greenfoot.setWorld( new Level_1() );
         }
     }

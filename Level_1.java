@@ -16,6 +16,7 @@ public class Level_1 extends World implements InterfaceAreaSound
     private AreaSound passeio1,passeio2,passeio3,passeio4;
     private AreaSound grass1,grass2,grass3,grass4,grass5,grass6,grass7,grass8,grass9,grass10,grass11,grass12;
     private TextBox chavedisplay;
+    private ChangeWorld change;
     
     /**
      * Constructor for objects of class Level_1.
@@ -27,6 +28,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         Game.setAtualPlayerWorld(this);
         Greenfoot.setSpeed(50);
         this.prepare();
+        this.start_sound();
         setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
     
@@ -36,6 +38,23 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.chavesShow();
         this.puzle1.atAct();
         this.puzle2.atAct();
+        this.finish();
+    }
+    
+    private void finish(){
+        if(this.change.isTouchingPlayer()){
+            SoundBox.stop_AllSounds();
+            SoundBox.clearSounds();
+            Game.setFinal_Time(this.timer);
+            Greenfoot.setWorld(new End());
+        }
+    }
+    
+    private void start_sound()
+    {
+        SoundBox.addSound("rain_sound.mp3");
+        SoundBox.addSound("game_background_muic.mp3");
+        SoundBox.playLoop_AllSounds();
     }
     
     private void chavesShow()
@@ -86,7 +105,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.preparePlayers();
         this.prepareWalls();
         this.preparePuzzles();
-        this.prepareAmbiente(); 
+        this.prepareEnviorment(); 
         this.prepareDecors();
     }
     
@@ -131,7 +150,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
     
-    private void prepareAmbiente(){
+    private void prepareEnviorment(){
         //colocando escuro
         Blackout a  = new Blackout();
         a.getImage().setTransparency(Game.getBrightness());
@@ -161,6 +180,9 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.grass10 = new  AreaSound(1196,297,254,129,"walking_grass.mp3");
         this.grass11 = new  AreaSound(938,475,210,150,"walking_grass.mp3");
         this.grass12 = new  AreaSound(1195,475,210,150,"walking_grass.mp3");
+        
+        this.change = new ChangeWorld(200,10);
+        addObject(change,1700, 450);
     }
     
     private void preparePuzzles(){
