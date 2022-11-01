@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 /**
- * Nível 1
+ * NÃ­vel 1
  */
 public class Level_1 extends World implements InterfaceAreaSound
 {
@@ -94,6 +94,29 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\liscas.png") , 1665, 450);
         this.addObject( new Light("luzes\\luztorres_",1), 1662, 320  );
         this.addObject( new Light("luzes\\luztorres_",1), 30, 320  );
+        this.addObject( new Actor_Decor("decors\\amongus_dead.png") , 970, 210);
+        this.addObject( new Wall("decors\\computer.png") , 300, 765);
+        this.addObject( new Wall("decors\\computer.png") , 400, 765);
+        this.addObject( new Actor_Decor("decors\\bed.png") , 1365, 700);
+        this.addObject( new Actor_Decor("decors\\bed.png") , 1265, 700);
+        this.addObject( new Actor_Decor("decors\\bed.png") , 1365, 150);
+        this.addObject( new Actor_Decor("decors\\bed.png") , 1265, 150);
+        this.addObject( new Actor_Decor("decors\\banco.png") , 1000, 315);
+        this.addObject( new Wall("decors\\tree11.png") , 1350, 540);
+        this.addObject( new Wall("decors\\tree11.png") , 1000, 540);
+        this.addObject( new Actor_Decor("decors\\bin.png") , 1100, 665);
+        this.addObject( new Actor_Decor("decors\\dumbells.png") , 1410, 315);
+        this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 155);
+        this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 240);
+        this.addObject( new Actor_Decor("decors\\phone.png") , 1100, 290);
+        this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 505);
+        this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 383);
+        this.addObject( new Wall("decors\\coffe.png") , 680, 70);
+        this.addObject( new Wall("decors\\rex.png") , 150, 280);
+        this.addObject( new Wall("decors\\rex.png") , 150, 600);
+        this.addObject( new Wall("decors\\gnome.png") , 773, 350);
+        this.addObject( new Wall("decors\\gnome.png") , 773, 530);
+        this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
     
     private void prepareEnviorment(){
