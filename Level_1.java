@@ -193,8 +193,6 @@ public class Level_1 extends World implements InterfaceAreaSound
     }
 
     private void preparePuzzles(){
-        Ball ball = new Ball();
-        addObject(ball,350,600);
         this.puzle1 = new Puzel_Level_1_lightcomb(this);
         this.puzle2 = new Puzzel_Level_1_pressureplate(this);
         //porta final

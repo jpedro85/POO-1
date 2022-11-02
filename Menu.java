@@ -17,7 +17,7 @@ public class Menu extends World
     private DropButton dp_dificulty,dp_personage1,dp_personage2;
     private TextBox tb_personage1,tb_personage2;
     private Button bt_dp1_optn1,bt_dp1_optn2,bt_dp1_optn3;
-    private Button bt_dp2_optn1,bt_dp2_optn2,bt_dp2_optn3;
+    private Button bt_dp2_optn1,bt_dp2_optn2,bt_dp2_optn3; 
 
     public Menu()
     {    

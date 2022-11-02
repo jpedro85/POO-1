@@ -9,6 +9,7 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
     private boolean halfcomplete;
     private boolean pressure1,pressure2;
     private Pressure_Plate plate1,plate2;
+    private Ball ball;
     private Door door_building2,door_building3;
 
     /**
@@ -43,10 +44,13 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
         this.getWorld().addObject(this.plate1,600,785);
         this.getWorld().addObject(this.plate2,1025,725);
         
+        this.ball = new Ball();
+        this.getWorld().addObject(this.ball,350,600);
+        
         this.door_building2 = new Door("Puzzle 2", "interactables\\door2.png", "door1_open.mp3","door1_close.mp3", false, -1, 0);
         this.door_building3 = new Door("Puzzle 2", "interactables\\door2.png", "door1_open.mp3","door1_close.mp3", false, -1, 0);
-        this.getWorld().addObject(this.door_building2,1169,276);
-        this.getWorld().addObject(this.door_building3,1168,635);
+        this.getWorld().addObject(this.door_building2,1166,276);
+        this.getWorld().addObject(this.door_building3,1166,635);
     }
     
     /**
@@ -74,6 +78,7 @@ public class Puzzel_Level_1_pressureplate extends Puzzle
         ArrayList<Players> LastUsers = new ArrayList();
         LastUsers.add(this.plate1.getLastUser());
         LastUsers.add(this.plate2.getLastUser());
+        LastUsers.add(this.ball.getLastUser());
         return LastUsers;
     }
     
