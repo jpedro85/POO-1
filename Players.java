@@ -282,6 +282,7 @@ public class Players extends Collision_Player
                         
                         this.walking_Sound = areaS.getSound() + this;
                         SoundBox.addSound( areaS.getSound() , this.walking_Sound );
+                        SoundBox.setSoundVolume(this.walking_Sound, Game.getVolume() );  
                         SoundBox.playLoop( this.walking_Sound );
                         this.areasound = areaS;
                         this.playing =true;

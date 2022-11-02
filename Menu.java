@@ -42,13 +42,14 @@ public class Menu extends World
             this.check_Optn_Dp_Personage2();
             this.check_optn_fechar();
             
-        this.check_m_play(); //pota play
+        this.check_m_play(); //porta play
     }
     
     private void start_sound()
     {
         SoundBox.addSound("menu_music.mp3");
-        SoundBox.playLoop_AllSounds();
+        SoundBox.setSoundVolume( "menu_music.mp3", Game.getVolume() );
+        SoundBox.playLoop_AllSounds(); 
     }
     
     private void check_m_play()

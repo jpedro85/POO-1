@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=ChangeWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ChangeWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Ator\ para\ verificar\ a\ condi\u00E7\u00E3o\ se\ final\ de\ jogo.\r\n
 comment1.params=altura\ largura
 comment1.target=ChangeWorld(int,\ int)
+comment1.text=\r\nInicia\ o\ objeto\ defenindo\ a\ largura\ e\ a\ altura\ da\ \u00E1rea\ de\ final\ de\ jogo.\r\n
 comment2.params=
-comment2.target=boolean\ isTouchingPlayer()
+comment2.target=boolean\ isTouchingPlayers()
+comment2.text=\r\n\ Verifica\ a\ condi\u00E7\u00E3o\ de\ final\ de\ jogo.\r\n
 numComments=3

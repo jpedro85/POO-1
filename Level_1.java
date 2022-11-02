@@ -17,7 +17,7 @@ public class Level_1 extends World implements InterfaceAreaSound
     private AreaSound grass1,grass2,grass3,grass4,grass5,grass6,grass7,grass8,grass9,grass10,grass11,grass12;
     private TextBox chavedisplay;
     private ChangeWorld change;
-    
+
     /**
      * Constructor for objects of class Level_1.
      */
@@ -31,38 +31,45 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.start_sound();
         setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
-    
+
     public void act()
     {
         this.startTimer();
         this.chavesShow();
         this.puzle1.atAct();
         this.puzle2.atAct();
-        this.finish();
+        this.check_Final_Condition();  
     }
-    
-    private void finish(){
-        if(this.change.isTouchingPlayer()){
-            SoundBox.stop_AllSounds();
-            SoundBox.clearSounds();
-            Game.setFinal_Time(this.timer);
-            Greenfoot.setWorld(new End());
-        }
+
+    private void check_Final_Condition()
+    {
+        if(this.change.isTouchingPlayers())
+            this.finish();
     }
-    
+
+    private void finish()
+    {
+        SoundBox.stop_AllSounds();
+        SoundBox.clearSounds();
+        Game.setFinal_Time(this.timer);
+        Greenfoot.setWorld(new End());
+    }
+
     private void start_sound()
     {
         SoundBox.addSound("rain_sound.mp3");
+        SoundBox.setSoundVolume("rain_sound.mp3", Game.getVolume() );
         SoundBox.addSound("game_background_muic.mp3");
+        SoundBox.setSoundVolume("game_background_muic.mp3", Game.getVolume() );
         SoundBox.playLoop_AllSounds();
     }
-    
+
     private void chavesShow()
     {
         this.chavedisplay.setText( String.valueOf( Game.getChaves() ) );
         this.chavedisplay.update_Text();
     }
-    
+
     private void startTimer()
     {
         if(Game.getDificulty().equals(DificultyType.EASY.toString())){
@@ -73,7 +80,7 @@ public class Level_1 extends World implements InterfaceAreaSound
             }
             else
             {
-                Greenfoot.setWorld( new End() );
+                this.finish();
             }
         }
         else if(Game.getDificulty().equals(DificultyType.NORMAL.toString())){
@@ -84,7 +91,7 @@ public class Level_1 extends World implements InterfaceAreaSound
             }
             else
             {
-                Greenfoot.setWorld( new End() );
+                this.finish();
             }
         }
         else if(Game.getDificulty().equals(DificultyType.HARD.toString())){
@@ -95,11 +102,11 @@ public class Level_1 extends World implements InterfaceAreaSound
             }
             else
             {
-                Greenfoot.setWorld( new End() );
+                this.finish();
             }
         }
     }
-    
+
     private void prepare()
     {
         this.preparePlayers();
@@ -108,7 +115,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.prepareEnviorment(); 
         this.prepareDecors();
     }
-    
+
     private void prepareDecors(){
         this.chavedisplay = new TextBox("textboxes\\textbox_chaves.png","textboxes\\textbox_chaves.png",10,60);
         this.chavedisplay.setFont( new Font("Segoe Script",true,false,30) );
@@ -117,7 +124,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.chavedisplay.setEditable(false);
         this.addObject( this.chavedisplay , 130 ,100);
         this.chavedisplay.setRelativeLocation(0, 0);
-        
+
         this.addObject( new Wall("decors\\tooredoportaocima.png") , 1662, 298);
         this.addObject( new Wall("decors\\tooredoportao_baixo.png") , 1662, 602);
         this.addObject( new Wall("decors\\tooredoportaocima.png") , 30, 298);
@@ -149,7 +156,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Wall("decors\\gnome.png") , 773, 530);
         this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
-    
+
     private void prepareEnviorment(){
         //colocando escuro
         Blackout a  = new Blackout();
@@ -180,11 +187,11 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.grass10 = new  AreaSound(1196,297,254,129,"walking_grass.mp3");
         this.grass11 = new  AreaSound(938,475,210,150,"walking_grass.mp3");
         this.grass12 = new  AreaSound(1195,475,210,150,"walking_grass.mp3");
-        
+
         this.change = new ChangeWorld(200,10);
         addObject(change,1700, 450);
     }
-    
+
     private void preparePuzzles(){
         Ball ball = new Ball();
         addObject(ball,350,600);
@@ -196,7 +203,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(new Key(""),970,140);
         addObject(new Key(""),760,900);
     }
-    
+
     private void preparePlayers()
     {
         Player1 player1 = new Player1();
@@ -204,7 +211,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(player1,30 , 390);
         addObject(player2,30 , 510);
     }
-    
+
     private void prepareWalls()
     {
         //Building1
@@ -262,7 +269,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(wall22,20,120);
         addObject(wall23,20,780);
     }
-    
+
     public ArrayList<AreaSound> getAreaSounds()
     {
         ArrayList<AreaSound> areaSoundList = new ArrayList<>();

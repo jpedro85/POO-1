@@ -17,10 +17,13 @@ public abstract class SoundBox
         return soundList_String.indexOf(sound);
     }
     
+    /**
+     * Aletera o volume do som com a referência "sound".
+     */
     public static void setSoundVolume(String sound,int volume)
     {
         soundList_String.indexOf(sound);
-        soundList.get( soundList_String.indexOf(sound) ).setVolume(  (volume > 0 && volume <= 100 )? volume : 100  );
+        soundList.get( soundList_String.indexOf(sound) ).setVolume(  (volume < 0  )? 0 : ( (volume <= 100  )? volume : 100)   );
     }
     
     /**
