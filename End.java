@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Mundo final.
+ * Mundo final. 
  */
 public class End extends World
 {
