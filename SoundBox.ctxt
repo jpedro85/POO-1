@@ -21,6 +21,7 @@ comment14.target=void\ clearSounds()
 comment14.text=\r\n\ Apaga\ todos\ os\ Sons\ Adicionados\ depois\ de\ fazer\ stopAll;\r\n
 comment2.params=sound\ volume
 comment2.target=void\ setSoundVolume(java.lang.String,\ int)
+comment2.text=\r\n\ Aletera\ o\ volume\ do\ som\ com\ a\ refer\u00EAncia\ "sound".\r\n
 comment3.params=sound
 comment3.target=void\ addSound(java.lang.String)
 comment3.text=\r\n\ Adiciona\ o\ som\ com\ filename\ "sound"\ a\ lista\ de\ sons.\ \r\n\ Filename\ passa\ a\ ser\ uma\ referencia\ para\ o\ som.\r\n

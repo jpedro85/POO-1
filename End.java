@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Mundo final.
+ * Mundo final. 
  */
 public class End extends World
 {
@@ -38,6 +38,7 @@ public class End extends World
     private void start_sound()
     {
         SoundBox.addSound("menu_music.mp3");
+        SoundBox.setSoundVolume("menu_music.mp3", Game.getVolume() );
         SoundBox.playLoop_AllSounds();
     }
 
