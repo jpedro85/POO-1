@@ -3,4 +3,5 @@ comment0.target=Rain
 comment0.text=\r\n\ Chuva\r\n
 comment1.params=base_filename_\ n_img\ delay
 comment1.target=Rain(java.lang.String,\ int,\ int)
+comment1.text=\r\n\ Uma\ sub\ class\ devido\ a\ ordem\ de\ pintura.\r\n
 numComments=2

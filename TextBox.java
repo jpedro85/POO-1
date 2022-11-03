@@ -1,17 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class TextBox here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Cria um elemento para mostrar ou editar texto.
  */
 public class TextBox extends UIElement
 {
     private String text;
     private boolean texting,editable;
     private int limit,begin_wrinting;
-
+    
+    /**
+     * Cria um "mostrador de texto" com uma imagem trasnparente ,que pode ser editado ou noa
+     */
     public TextBox(int width,int height,int char_limit,int begin_wrinting,String text ,Font font, Color textColor)
     {
         this.start_vars();
@@ -25,7 +25,10 @@ public class TextBox extends UIElement
         this.setText(text);
         this.update_Text();
     }
-
+    
+    /**
+     * Overload usa imagens ja feitas.
+     */
     public TextBox(String background_defaut, String background_hover,int char_limit,int begin_wrinting)
     {
         this.start_vars();
@@ -37,7 +40,11 @@ public class TextBox extends UIElement
 
         setImage(this.getBackground_Defaut());
     }
-
+    
+    /**
+     * Executado cada ciclo.
+     */
+    @Override
     public void act()
     {
         if(this.isEditable())
@@ -50,30 +57,50 @@ public class TextBox extends UIElement
             }
         }
     }
-
+    
+    /**
+     * Inicia ass variaveis.
+     */
+    @Override
     protected void start_vars()
     {
         super.start_vars();
         this.setTexting(false);
         this.setEditable(true);
     }
-
+    
+    /**
+     * Ação quando se clica.
+     */
+    @Override
     public void mouse_CLick()
     {
-        this.setTexting( !this.isTexting());
+        this.setTexting(true);
+        this.clear();
     }
-
+    
+    /**
+     * Animação 
+     */
+    @Override
     protected void on_Animation()
     {
         this.setAnimateState(false);
     }
-
+    
+    /**
+     * Verifica o estado.
+     */
+    @Override
     protected void check_move()
     {
         super.check_move();
         this.update_Text();
     }
-
+    
+    /**
+     * Lê o input.
+     */
     private void read_input()
     {
         String input = Greenfoot.getKey();
@@ -107,7 +134,10 @@ public class TextBox extends UIElement
             }
         }
     }
-
+    
+    /**
+     * Atualiza o texto para ficar igual à varivel interna.
+     */
     public void update_Text()
     {
         if (this.getImage() != null && this.getText() != null)
@@ -124,73 +154,115 @@ public class TextBox extends UIElement
             setImage(image);
         }
     }
-
+    
+    /**
+     * Atualiza a cor do texto escrito.
+     */
+    @Override
     public void setTextColor(Color color)
     {
         super.setTextColor(color);
         this.getBackground_Defaut().setColor(color);
         this.getBackground_Selected().setColor(color);
     }
-
+    
+    /**
+     * Atualia a fonte.
+     */
     public void setFont(Font font)
     {
         super.setFont(font);
         this.getBackground_Defaut().setFont(font);
         this.getBackground_Selected().setFont(font);
     }
-
+    
+    /**
+     * Muda o estado.
+     */
+    @Override
     public void setActiveSate(boolean bool)
     {
         super.setActiveSate(bool);
         this.setTexting(false);
     }
-
+    
+    /**
+     * Limpa a caixa de texto.
+     */
     public void clear()
     {
         this.text = "";
     }
-
+    
+    /**
+     * Altera o texto.
+     */
     public void setText(String text)
     {
         if(text != null)
             this.text = text;
-    }    
+    }   
 
-    private void setTexting(boolean bool)
+    /**
+     * Modifica se está escrevendo.
+     */
+    public void setTexting(boolean bool)
     {
         this.texting = bool;
     }
-
+    
+    /**
+     * habilida ou desabilida a função de escrita.
+     */
     public void setEditable(boolean bool)
     {
         this.editable = bool;
     }
-
+    
+    /**
+     * Define a quantidade de careteres máxima.
+     */
     public void setCharLimit(int limit)
     {
         this.limit = limit;
     }
-
+    
+    /**
+     * Retorna o texto
+     */
     public String getText()
     {
         return text;
     }
-
+    
+    /**
+     * Retorna o lim de caracteres.
+     */
     public int getCharLimit()
     {
         return this.limit;
     }
-
+    
+    /**
+     * Retorna se essta escrevendo.
+     */
     public boolean isTexting()
     {
         return this.texting;
     }
 
+    /**
+     * Retorna se é editavel.
+     */
     public boolean isEditable()
     {
         return this.editable;
     }
-
+    
+    /**
+     * Retorna uma representação do objeto em String.
+     */
+    @Override
     public String toString()
     {
         return "Textbox: " + super.toString();

@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Menu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Um Menu com o botao play, help , optn.
  */
 public class Menu extends World
 {
@@ -19,6 +16,9 @@ public class Menu extends World
     private Button bt_dp1_optn1,bt_dp1_optn2,bt_dp1_optn3;
     private Button bt_dp2_optn1,bt_dp2_optn2,bt_dp2_optn3; 
 
+    /**
+     * Inicia o mundo.
+     */
     public Menu()
     {    
         super(1700, 900, 1); 
@@ -28,30 +28,42 @@ public class Menu extends World
         Greenfoot.start();
         this.start_sound();
     }
-    
+
+    /**
+     * Executado cada ciclo.
+     */
+    @Override
     public void act()
     {
         this.check_m_help(); //porta ajuda
         //help ações dos butões
-            this.check_help_fechar(); //porta ajuda
-        
+        this.check_help_fechar(); //porta ajuda
+
         this.check_m_optn(); //porta opções 
         //optn ações dos butões
-            this.check_m_optn_Aplicar();
-            this.check_Optn_Dp_Personage1();
-            this.check_Optn_Dp_Personage2();
-            this.check_optn_fechar();
-            
+        this.check_m_optn_Aplicar();
+        this.check_Optn_Dp_Personage1();
+        this.check_Optn_Dp_Personage2();
+        this.check_optn_fechar();
+        this.check_textBoxex();
+
         this.check_m_play(); //porta play
+
     }
-    
+
+    /**
+     * Inicia os sons.
+     */
     private void start_sound()
     {
         SoundBox.addSound("menu_music.mp3");
         SoundBox.setSoundVolume( "menu_music.mp3", Game.getVolume() );
         SoundBox.playLoop_AllSounds(); 
     }
-    
+
+    /**
+     * Verifica se clicou no play.
+     */
     private void check_m_play()
     {
         if(this.m_play.isPressed())
@@ -61,7 +73,10 @@ public class Menu extends World
             Greenfoot.setWorld( new Level_1() );
         }
     }
-    
+
+    /**
+     * Verifica se clicou no help.
+     */
     private void check_m_help()
     {
         if(this.m_help.isPressed() && this.windowHelp == null)
@@ -69,7 +84,10 @@ public class Menu extends World
             this.create_Window_Help();
         }
     }
-    
+
+    /**
+     * Verifica se clicou no optn.
+     */
     private void check_m_optn()
     {
         if(this.m_optn.isPressed() && this.windowOptn == null)
@@ -77,7 +95,10 @@ public class Menu extends World
             this.create_Window_Optn();
         }
     }
-    
+
+    /**
+     * Verifica se clicou no fechar da janela optn.
+     */
     private void check_optn_fechar()
     {
         if(this.optn_fechar != null && this.optn_fechar.isPressed())
@@ -90,7 +111,10 @@ public class Menu extends World
             this.windowOptn = null;
         }
     }
-    
+
+    /**
+     * Verifica se clicou no fachar da janela help.
+     */
     private void check_help_fechar()
     {
         if(this.help_fechar != null && this.help_fechar.isPressed())
@@ -100,7 +124,31 @@ public class Menu extends World
             this.windowHelp = null;
         }
     }
-    
+
+    /**
+     * Verifica qual das textbox esta a ser escrita.
+     */
+    private void check_textBoxex()
+    {
+        if(this.tb_personage1 != null && this.tb_personage2 != null )
+        {
+            if(this.tb_personage1.isTexting()  && this.tb_personage2.isTexting())
+            {    
+                if(this.tb_personage1.isMouseHover())
+                    this.tb_personage2.setTexting(false);
+                else
+                    this.tb_personage1.setTexting(false);
+            }
+            else if(this.tb_personage1.isTexting() )
+                this.tb_personage2.setTexting(false);
+            else if (this.tb_personage2.isTexting())
+                this.tb_personage2.setTexting(true);  
+        }
+    }
+
+    /**
+     * Verifica se clicou no aplicar.
+     */
     private void check_m_optn_Aplicar()
     {
         if(this.bt_aplicar != null && this.bt_aplicar.isPressed())
@@ -108,15 +156,22 @@ public class Menu extends World
             Game.setVolume( this.sldier_volume.getValue() );
             Game.setBrightness( this.slider_brightness.getValue() );
             Game.setDificulty( this.dp_dificulty.getOptn() );
-            Game.setPlayer1Name( this.tb_personage1.getText() );
-            Game.setPlayer2Name( this.tb_personage2.getText() );
+
+            if(this.tb_personage1.getText().strip() != "")
+                Game.setPlayer1Name( this.tb_personage1.getText() );
+            if(this.tb_personage2.getText().strip() != "")
+                Game.setPlayer2Name( this.tb_personage2.getText() );
+
             Game.setPlayer1_personage( this.dp_personage1.getOptn() );
             Game.setPlayer2_personage( this.dp_personage2.getOptn() );
             SoundBox.setSoundVolume("menu_music.mp3", Game.getVolume() );
             this.updateSound();
         }
     }
-    
+
+    /**
+     * Da update ao volume de todos os soms do menu.
+     */
     private void updateSound()
     {
         //botões
@@ -129,7 +184,10 @@ public class Menu extends World
         if (this.windowHelp != null)
             this.windowHelp.updateSound();
     }
-        
+
+    /**
+     * Inicia os botoes sprincipais : play,optn e help.
+     */
     private void start_Buttons()
     {
         this.m_play = new Button("portas\\defaut_play.png","portas\\selected_play.png");
@@ -142,7 +200,10 @@ public class Menu extends World
         this.m_help.setSound_Selected("chain.mp3");
         this.addObject(this.m_help,1700-350,478);
     }
-    
+
+    /**
+     * Cria uma janela help.
+     */
     private void create_Window_Help()
     {
         this.windowHelp = new Window("janelas\\janela_help_background.png",680,500);
@@ -150,13 +211,16 @@ public class Menu extends World
         this.help_fechar = new Button("botoes\\defaut_fechar.png","botoes\\selected_fechar.png");
         this.windowHelp.add_Actor(this.help_fechar,340,470);
     }
-    
+
+    /**
+     * Verifica a dropbox skin player 1.
+     */
     private void check_Optn_Dp_Personage1()
     {
         if( this.dp_personage1 != null  && this.dp_personage1.isAberto() )
         {
             String Optn = this.dp_personage2.getOptn();
-            
+
             if(Optn == CharactersType.RICARDO.toString() )
             {
                 this.bt_dp1_optn1.setActiveSate(false);
@@ -177,13 +241,16 @@ public class Menu extends World
             }
         }
     }
-    
+
+    /**
+     * Verifica a dropbox skin player 2.
+     */
     private void check_Optn_Dp_Personage2()
     {
         if(this.dp_personage2 != null && this.dp_personage2.isAberto() )
         {
             String Optn = this.dp_personage1.getOptn();
-            
+
             if(Optn == CharactersType.RICARDO.toString() )
             {
                 this.bt_dp2_optn1.setActiveSate(false);
@@ -204,30 +271,33 @@ public class Menu extends World
             }
         }
     }
-    
+
+    /**
+     * Cria uma janela optn
+     */
     private void create_Window_Optn()
     {
         Font myFont = new Font("Segoe Script",true,false,20);
-    
+
         this.windowOptn = new Window("janelas\\janela_optn_background.png",680,500);
         addObject(this.windowOptn,850, 450);
-        
+
         this.optn_fechar = new Button("botoes\\defaut_fechar.png","botoes\\selected_fechar.png");
         this.windowOptn.add_Actor(this.optn_fechar,80,470);//i=0
         this.bt_aplicar = new Button("botoes\\defaut_aplicar.png","botoes\\selected_aplicar.png");
         this.windowOptn.add_Actor(this.bt_aplicar,600,470);//i=1
-        
+
         this.sldier_volume = new Slider(115,25,0,100);
         this.windowOptn.add_Actor(this.sldier_volume, 565, 141);//i=2
         this.sldier_volume.setValue( Game.getVolume() );
-        
+
         this.slider_brightness = new Slider(115,25,200,255);
         this.windowOptn.add_Actor(this.slider_brightness, 565, 169);//i=3
         this.slider_brightness.setValue( Game.getBrightness() );
 
         this.dp_dificulty = new DropButton("Botoes\\defaut_DropButton.png","Botoes\\selected_DropButton.png");
         this.windowOptn.add_Actor(this.dp_dificulty,565,198);//i=4
-        
+
         Button a = new Button("botoes\\defaut_facil.png","botoes\\selected_facil.png");
         Button b = new Button("botoes\\defaut_normal.png","botoes\\selected_normal.png");
         Button c = new Button("botoes\\defaut_dificil.png","botoes\\selected_dificil.png");
@@ -236,7 +306,7 @@ public class Menu extends World
         this.dp_dificulty.addSubButton(b, DificultyType.NORMAL.toString() );
         this.dp_dificulty.addSubButton(c, DificultyType.HARD.toString());
         this.dp_dificulty.setOptn( Game.getDificulty() );
-                
+
         this.bt_dp1_optn1 = new Button("botoes\\defaut_ricardo.png","botoes\\selected_ricardo.png");
         this.bt_dp1_optn2 = new Button("botoes\\defaut_joao.png","botoes\\selected_joao.png");
         this.bt_dp1_optn3 = new Button("botoes\\defaut_pedro.png","botoes\\selected_pedro.png");
@@ -247,13 +317,13 @@ public class Menu extends World
         this.dp_personage1.addSubButton(this.bt_dp1_optn1,CharactersType.RICARDO.toString() );
         this.dp_personage1.addSubButton(this.bt_dp1_optn2,CharactersType.JOAOPEDRO.toString());
         this.dp_personage1.addSubButton(this.bt_dp1_optn3,CharactersType.PEDRO.toString() );
-        
+
         this.tb_personage1 = new TextBox("textboxes\\defaut_jogador1.png","textboxes\\selected_jogador1.png",18,30);
         this.windowOptn.add_Actor(this.tb_personage1,478, 272);//i=6
         this.tb_personage1.setTextColor(UIElement.TEXTCOLOR_DOURADO);
         this.tb_personage1.setFont(UIElement.FONT2_DEFAUT);
         this.tb_personage1.setText( Game.getPlayer1Name() );
-        
+
         this.bt_dp2_optn1 = new Button("botoes\\defaut_ricardo.png","botoes\\selected_ricardo.png");
         this.bt_dp2_optn2 = new Button("botoes\\defaut_joao.png","botoes\\selected_joao.png");
         this.bt_dp2_optn3 = new Button("botoes\\defaut_pedro.png","botoes\\selected_pedro.png");
@@ -264,13 +334,13 @@ public class Menu extends World
         this.dp_personage2.addSubButton(this.bt_dp2_optn1,CharactersType.RICARDO.toString() );
         this.dp_personage2.addSubButton(this.bt_dp2_optn2,CharactersType.JOAOPEDRO.toString() );
         this.dp_personage2.addSubButton(this.bt_dp2_optn3,CharactersType.PEDRO.toString() );
-        
+
         this.tb_personage2 = new TextBox("textboxes\\defaut_jogador2.png","textboxes\\selected_jogador2.png",18,30);
         this.windowOptn.add_Actor(this.tb_personage2,478, 377);//i=8
         this.tb_personage2.setTextColor(UIElement.TEXTCOLOR_DOURADO);
         this.tb_personage2.setFont(UIElement.FONT2_DEFAUT);
         this.tb_personage2.setText( Game.getPlayer2Name() );
-        
+
     }
 }
 

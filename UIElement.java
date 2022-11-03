@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class UIElements here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Base dos elementos do UI.
  */
 public abstract class UIElement extends Actor
 {   
@@ -19,20 +16,23 @@ public abstract class UIElement extends Actor
     private Font font;
     private GreenfootSound sound_select, sound_click;
 
+    /**
+     * Coloca na posição em que o canto superior esquerdo é igual (x,y);
+     */
     public void setRelativeLocation(int x,int y)
     {   
-        /**
-         * Coloca na posição em que o canto superior esquerdo é igual (x,y);
-         */
         setLocation(x+(getImage().getWidth()/2),y+(getImage().getHeight()/2));
     }
-
+    
+    /**
+     * Inicia as variavieis
+     */
     protected void start_vars()
     {
-        this.m_hover = false;
-        this.m_pressed = false;
-        this.animate =false;
-        this.active = true;
+        this.m_hover = false; // ativa quando o rato está em cima
+        this.m_pressed = false; // ativa quando o rato clicou em cima
+        this.animate =false; // ativa despois de clicar enquanto está a animar
+        this.active = true; // ativa se o elemento for usavel.
         this.textColor = TEXTCOLOR_DEFAUT;
         this.font = FONT_DEFAUT;
         this.sound_select = new GreenfootSound("teste2.mp3");
@@ -40,7 +40,10 @@ public abstract class UIElement extends Actor
         this.sound_click = new GreenfootSound("click-21156.mp3");
         this.sound_click.setVolume(Game.getVolume());
     }
-
+    
+    /**
+     * Atualiza as variaveis de estado.
+     */
     public void check_states()
     {   
         if(this.active)
@@ -52,7 +55,10 @@ public abstract class UIElement extends Actor
             }
         }
     }
-
+    
+    /**
+     * Atualiza as variaveis de estado m_pressed.
+     */
     protected void check_click()
     {
         if (Greenfoot.mouseClicked(this))
@@ -64,11 +70,12 @@ public abstract class UIElement extends Actor
         } else
         {
             this.m_pressed = false;
-         /*   String soundString = this.sound_click.toString();
-            this.sound_click = new GreenfootSound( soundString.substring(soundString.indexOf("file:")+6, soundString.indexOf(" . ")) );*/
         }
     }
-
+    
+    /**
+     * Atualiza as variaveis de estado m_move.
+     */
     protected void check_move()
     {
         if (Greenfoot.mouseMoved(null))
@@ -85,9 +92,15 @@ public abstract class UIElement extends Actor
             }
         }
     }
-
+    
+    /**
+     * Ação a fazer quando o existe click.
+     */
     public void mouse_CLick(){}
-
+    
+    /**
+     * Atualiza a imagem com base nas variaveis de estado.
+     */
     public void update()
     {
         if(this.isMouseHover())
@@ -100,9 +113,15 @@ public abstract class UIElement extends Actor
             setImage(this.getBackground_Defaut());
         }
     }
-
+    
+    /**
+     * Animação
+     */
     protected void on_Animation(){};
-
+    
+    /**
+     * Atualiza o estado.
+     */
     protected void updateState()
     {
         if(this.getImage() != null)
@@ -114,7 +133,10 @@ public abstract class UIElement extends Actor
                 this.getImage().setTransparency(100);
         }
     }
-
+    
+    /**
+     * Getters e setters
+     */
     public void setImage(GreenfootImage image)
     {
         super.setImage(image);
@@ -228,25 +250,31 @@ public abstract class UIElement extends Actor
     {
         return this.getY()-(getImage().getHeight()/2);
     }
-    
+
     public void setSound_Click(String sound)
     {
         this.sound_click = new GreenfootSound(sound) ;
         this.sound_click.setVolume(Game.getVolume());
     }
-    
+
     public void setSound_Selected(String sound)
     {
         this.sound_select = new GreenfootSound(sound) ;
         this.sound_select.setVolume(Game.getVolume());
     }
     
+    /**
+     * Atualiza o volume dos sons.
+     */
     public void updateVolume()
     {
         this.sound_click.setVolume(Game.getVolume());
         this.sound_select.setVolume(Game.getVolume());
     }
     
+    /**
+     * Retorna o objeto em string.
+     */
     public String toString()
     {
         return "UIElement:(x,y: "+this.getX() + " , " + this.getY() + " , Active: " + this.isActive() + " , Pressed: " + this.isPressed() + " , Animated: " + this.isAnimated() +  ", Seleted: "+ this.isMouseHover() +")";

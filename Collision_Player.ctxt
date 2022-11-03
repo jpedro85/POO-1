@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Collision_Player
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collision_Player\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Define\ m\u00E9todos\ para\ colisoes\ entre\ um\ ator\ e\ um\ ator\ player.\r\n
 comment1.params=
 comment1.target=void\ check_Collision()
+comment1.text=\r\n\ Verifica\ com\ qu\u00EA\ que\ est\u00E1\ a\ culidir\ e\ determina\ a\ colis\u00E3o\ entre\ os\ dois.\r\n
 comment2.params=actor
 comment2.target=void\ Collision_PASSUNDER(Collision)
+comment2.text=\r\n\ Altera\ a\ ordem\ de\ pintura.\ N\u00E3o\ concluido.\r\n
 comment3.params=actor
 comment3.target=void\ Collision_PASSHOVER(Collision)
+comment3.text=\r\n\ Altera\ a\ ordem\ de\ pintura.\ N\u00E3o\ concluido.\r\n
 numComments=4

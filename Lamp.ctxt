@@ -1,16 +1,22 @@
 #BlueJ class context
 comment0.target=Lamp
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Lampada\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Objeto\ que\ tem\ uma\ luz\ variavel\ quando\ est\u00E1\ desligado\ ou\ ligado\r\n
 comment1.params=light_ligada\ light_desligada\ img_off\ img_on
 comment1.target=Lamp(Light,\ Light,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Inicia\ Luz\ ligada\ e\ Luz\ Desligada\ e\ as\ imagens\ do\ objeto\ que\ imete\ luz.\r\n
 comment2.params=
 comment2.target=void\ changeState()
+comment2.text=\r\n\ Muda\ o\ est\u00E1do\ da\ lampada.\r\n
 comment3.params=
 comment3.target=void\ ligar()
+comment3.text=\r\n\ Liga\ a\ lampada.\r\n
 comment4.params=
 comment4.target=void\ desligar()
+comment4.text=\r\n\ Desliga\ a\ lampada.\r\n
 comment5.params=
 comment5.target=void\ updateLight()
+comment5.text=\r\n\ Aletera\ a\ luz\ assoassiada\ ao\ estado.\r\n
 comment6.params=
 comment6.target=boolean\ isligado()
+comment6.text=\r\n\ Retorna\ se\ est\u00E1\ ligada.\r\n
 numComments=7

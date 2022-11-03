@@ -33,6 +33,7 @@ public class Door extends AdvancedActor
     /**
      * Executado a cada tick;
     */
+    @Override
     public void act()
     {
         super.act();

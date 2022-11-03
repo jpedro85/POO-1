@@ -2,10 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class character here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Players
  */
 public class Players extends Collision_Player
 {
@@ -33,7 +30,9 @@ public class Players extends Collision_Player
     private String walking_Sound;
     private AreaSound areasound;
 
-    //Constructor of character
+    /**
+     * Inicia as variaveis
+     */
     public Players ()
     {
         this.animationCounter = 0;
@@ -173,7 +172,10 @@ public class Players extends Collision_Player
 
         // System.out.println(moving + ":" + this);
     }
-
+    
+    /**
+     * Verifica quais os atores que estao na zona de interação
+     */
     protected void check_Use(String btn)
     {
         if( Greenfoot.isKeyDown(btn))
@@ -206,33 +208,48 @@ public class Players extends Collision_Player
         }
     }
 
+    /**
+     * Desenha uma hitbox para o ator.
+     */
     protected void checkHitbox(){
         GreenfootImage image1 = getImage();
         image1.setColor(Color.BLACK);
         image1.drawRect(0,0,image1.getWidth()-1,image1.getHeight()-1);   
     }
-
+    
+    /**
+     * Animação para direita.
+     */
     private void animateRight(int counter){
         if(counter==characterRightAnimationList.size()){
             counter=0;
         }
         setImage(characterRightAnimationList.get(counter));
     }
-
+    
+    /**
+     * Animação para esquerda.
+     */
     private void animateLeft(int counter){
         if(counter==characterLeftAnimationList.size()){
             counter=0;
         }
         setImage(characterLeftAnimationList.get(counter));
     }
-
+    
+    /**
+     * Animação para cima.
+     */
     private void animateUp(int counter){
         if(counter==characterUpAnimationList.size()){
             counter=0;
         }
         setImage(characterUpAnimationList.get(counter));
     }
-
+    
+    /**
+     * Animação para baixo.
+     */
     private void animateDown(int counter){
         if(counter==characterDownAnimationList.size()){
             counter=0;
@@ -249,7 +266,10 @@ public class Players extends Collision_Player
             getWorld().addObject(myTooltip,getX(),getY()-getImage().getHeight()/2);
         }
     }
-
+    
+    /**
+     * Reseta a tooltip para podermos criar outra. Cada player sópode ter uma tooltip de cada vez.
+     */
     public void check_Tooltip(){
         if (this.myTooltip != null)
         {
@@ -259,7 +279,7 @@ public class Players extends Collision_Player
     }
 
     /**
-     * Verifica e toca o som de andar.
+     * Verifica e toca o som de andar da area em que está.
      */
     public void walking_sound(){
 
@@ -307,7 +327,10 @@ public class Players extends Collision_Player
     {
         return this.myTooltip == null ? false : true;  
     }
-
+    
+    /**
+     * Retorna CharaterVison enum
+     */
     public CharactersVision getVision()
     {
         return this.vision;

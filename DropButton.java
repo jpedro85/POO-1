@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class DropButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Um botao com subbotoes em que só um pode estar selecionado de cada vez.
  */
 public class DropButton extends Button
 {
@@ -15,13 +12,19 @@ public class DropButton extends Button
     private boolean aberto ,btn_pressed;
     private int counte;
     
-        
+    
+    /**
+     * Inicia o buttao principal e as suas variaveis
+     */
     public DropButton(String background_defaut, String background_hover)//, String menu_background)
     {
         super(background_defaut,background_hover);
         this.start_vars();  
     }
     
+    /**
+     * Inicia sa variaveis.
+     */
     @Override
     protected void start_vars()
     {
@@ -35,6 +38,9 @@ public class DropButton extends Button
         this.seleted_ori = this.getBackground_Selected();
     }
     
+    /**
+     * Executado a cada ciclo.
+     */
     @Override
     public void act()
     {
@@ -43,6 +49,9 @@ public class DropButton extends Button
         this.wait_for_Animation();
     }
     
+    /**
+     * Da update á opção escolhida.
+     */
     private void updatetext()
     {
         GreenfootImage img = new GreenfootImage(this.defaut_ori);
@@ -61,6 +70,9 @@ public class DropButton extends Button
         this.setImage(this.getBackground_Defaut());
     }
     
+    /**
+     * Faz um dilay para a animação de click do butao acabar antes de fechar todos os butoes.
+     */
     private void wait_for_Animation()
     {
          if(this.btn_pressed){
@@ -75,6 +87,9 @@ public class DropButton extends Button
         } 
     }
     
+    /**
+     * Ação a fazer quando se clica.
+     */
     @Override
     public void mouse_CLick()
     {
@@ -86,6 +101,9 @@ public class DropButton extends Button
             this.fechar(); 
     }
     
+    /**
+     * Faz aparecer os subbotoes.
+     */
     public void abrir()
     {
         Button btn_last = null;
@@ -97,6 +115,9 @@ public class DropButton extends Button
         }
     }
     
+    /**
+     * faz desaparecer os subbotoes.
+     */
     public void fechar()
     {
         for(Button btn:this.buttons_list)
@@ -106,6 +127,9 @@ public class DropButton extends Button
         this.setAberto(false);
     }
     
+    /**
+     * Atualiza a opção escolhida com base no subbotao que esta escolhido.
+     */
     private void check_optn()
     {
         for(Button btn:this.buttons_list)
@@ -118,35 +142,53 @@ public class DropButton extends Button
             }
         }
     }
-       
+    
+    /**
+     * Adiciona um botao a lista de subbotoes.
+     */
     public void addSubButton(Button button,String option)
     {
         this.buttons_list.add(button); 
         this.options_list.add(option);
     }
     
+    /**
+     * Remove o botao da lista.
+     */
     public void removeSubButton(int index)
     {
         this.buttons_list.remove(index);
         this.options_list.remove(index);
     }
     
+    /**
+     * Altera a opção escolhida e da update á imagem atualizando o texto.
+     */
     public void setOptn(String optn)
     {
         this.atual_optn = optn;
         this.updatetext();
     }
     
+    /**
+     * Retorna a opção
+     */
     public String getOptn()
     {
         return this.atual_optn;
     }
-       
-    public void setAberto(boolean bool)
+    
+    /**
+     * Modifica a variavel "aberto".
+     */
+    private void setAberto(boolean bool)
     {
         this.aberto = bool;
     }
     
+    /**
+     * Retorna "aberto".
+     */
     public boolean isAberto()
     {
         return this.aberto;

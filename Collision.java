@@ -2,17 +2,20 @@ import greenfoot.*;
 import java.util.List;
 
 /**
- * Write a description of class Collision here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Adiciona colisóes a um actor.
  */
 public abstract class Collision extends Actor
 {
     private List<AdvancedActor> actorInRangeList;
-
+    
+    /**
+     * Verifica as condições para a colisão
+     */
     protected abstract void check_Collision();
-
+    
+    /**
+     * Colisão total entre dois atores não deixa que as hitboxes se intesetem.
+     */
     protected void Collision_TOTAL(Collision actor_move , Collision actor_fixed )
     {
         int deltaX = actor_move.getX()-actor_fixed.getX();
@@ -55,19 +58,30 @@ public abstract class Collision extends Actor
             }
         }
     }
-
+    
+    /**
+     * Altera a hordem de desenho.
+     */
     protected void Collision_HOVER_OR_UNDER(Collision actor_hover , Collision actor_Under)
     {
         this.getWorld().setPaintOrder(Tooltip.class, actor_hover.getClass() , actor_Under.getClass() );
     }
-
+    
+    /**
+     * Retorna a lista de objetos in range.
+     */
     protected List<AdvancedActor> getActorInRangeList()
     {
         return this.actorInRangeList;
     }
-
+    
+    /**
+     * Altera a lista de objetos in range para a nova lista.
+     */
     protected List<AdvancedActor> setActorInRangeList(List<AdvancedActor> list)
     {
+        if(this.actorInRangeList != null)
+            this.actorInRangeList.clear();
         return this.actorInRangeList = list;
     }
 }

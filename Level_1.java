@@ -6,20 +6,20 @@ import java.util.ArrayList;
  */
 public class Level_1 extends World implements InterfaceAreaSound
 {
-    private Puzel_Level_1_lightcomb puzle1;
+    private Puzel_Level_1_lightcomb puzle1; 
     private Puzzel_Level_1_pressureplate puzle2;
     private int timer;
-    private final int MAX_TIMER_EZ=(5*60*50);
+    private final int MAX_TIMER_EZ=(5*60*50); // tempos limite para o nivel
     private final int MAX_TIMER_NORM=(2*60*50);
     private final int MAX_TIMER_HARD=(1*60*50);
-    private AreaSound b1,b2,b3;
-    private AreaSound passeio1,passeio2,passeio3,passeio4;
-    private AreaSound grass1,grass2,grass3,grass4,grass5,grass6,grass7,grass8,grass9,grass10,grass11,grass12;
-    private TextBox chavedisplay;
+    private AreaSound b1,b2,b3; // AreaSound wood
+    private AreaSound passeio1,passeio2,passeio3,passeio4; // AreaSound stone
+    private AreaSound grass1,grass2,grass3,grass4,grass5,grass6,grass7,grass8,grass9,grass10,grass11,grass12; // AreaSound grass
+    private TextBox chavedisplay; 
     private ChangeWorld change;
 
     /**
-     * Constructor for objects of class Level_1.
+     * Inicia Level_1.
      */
     public Level_1()
     {    
@@ -31,7 +31,11 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.start_sound();
         setPaintOrder(Light.class,Tooltip.class,TextBox.class,Blackout.class,Rain.class,Players.class,Actor_Animated.class,Ball.class,Pressure_Plate.class);
     }
-
+    
+    /**
+     * Executado cada tick.
+     */
+    @Override
     public void act()
     {
         this.startTimer();
@@ -40,13 +44,19 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.puzle2.atAct();
         this.check_Final_Condition();  
     }
-
+    
+    /**
+     * Verifica a condição final do nivel , se os dois players tocam no ator invisival
+     */
     private void check_Final_Condition()
     {
         if(this.change.isTouchingPlayers())
             this.finish();
     }
-
+    
+    /**
+     * Para todos os soms, atualiza o tempo no Game e muda para o mundo end.
+     */
     private void finish()
     {
         SoundBox.stop_AllSounds();
@@ -54,7 +64,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         Game.setFinal_Time(this.timer);
         Greenfoot.setWorld(new End());
     }
-
+    
+    /**
+     * Inicia os sons 
+     */
     private void start_sound()
     {
         SoundBox.addSound("rain_sound.mp3");
@@ -64,12 +77,18 @@ public class Level_1 extends World implements InterfaceAreaSound
         SoundBox.playLoop_AllSounds();
     }
 
+    /**
+     * Atualiza a textbox das chaves.
+     */
     private void chavesShow()
     {
         this.chavedisplay.setText( String.valueOf( Game.getChaves() ) );
         this.chavedisplay.update_Text();
     }
-
+    
+    /**
+     * Atualiza o tempo e verifica se ja chegou ao limite..
+     */
     private void startTimer()
     {
         if(Game.getDificulty().equals(DificultyType.EASY.toString())){
@@ -106,7 +125,10 @@ public class Level_1 extends World implements InterfaceAreaSound
             }
         }
     }
-
+    
+    /**
+     * Excuta os metodos prepare.
+     */
     private void prepare()
     {
         this.preparePlayers();
@@ -115,7 +137,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.prepareEnviorment(); 
         this.prepareDecors();
     }
-
+    
+    /**
+     * Inicia as decorações.
+     */
     private void prepareDecors(){
         this.chavedisplay = new TextBox("textboxes\\textbox_chaves.png","textboxes\\textbox_chaves.png",10,60);
         this.chavedisplay.setFont( new Font("Segoe Script",true,false,30) );
@@ -156,7 +181,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Wall("decors\\gnome.png") , 773, 530);
         this.addObject( new Actor_Decor("decors\\mat.png") , 480, 450);
     }
-
+    
+    /**
+     * Inicia o ambiente.
+     */
     private void prepareEnviorment(){
         //colocando escuro
         Blackout a  = new Blackout();
@@ -192,6 +220,9 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(change,1700, 450);
     }
 
+    /**
+     * Inicia os puzles.
+     */
     private void preparePuzzles(){
         this.puzle1 = new Puzel_Level_1_lightcomb(this);
         this.puzle2 = new Puzzel_Level_1_pressureplate(this);
@@ -201,7 +232,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(new Key(""),970,140);
         addObject(new Key(""),760,900);
     }
-
+    
+    /**
+     * Coloca os players.
+     */
     private void preparePlayers()
     {
         Player1 player1 = new Player1();
@@ -209,7 +243,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(player1,30 , 390);
         addObject(player2,30 , 510);
     }
-
+    
+    /**
+     * Coloca as paredes.
+     */
     private void prepareWalls()
     {
         //Building1
@@ -267,7 +304,10 @@ public class Level_1 extends World implements InterfaceAreaSound
         addObject(wall22,20,120);
         addObject(wall23,20,780);
     }
-
+    
+    /**
+     * Retorna todas as areas de sound numa lista.
+     */
     public ArrayList<AreaSound> getAreaSounds()
     {
         ArrayList<AreaSound> areaSoundList = new ArrayList<>();

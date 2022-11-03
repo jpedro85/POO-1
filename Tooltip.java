@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Tooltip here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Cria um texto que aparece sobre a cabeja do player
  */
 public class Tooltip extends Actor
 {
@@ -16,6 +13,9 @@ public class Tooltip extends Actor
     private int ticks;
     private Actor actor;
     
+    /**
+     * Inicia tamnanho e actor para seguir.
+     */
     public Tooltip(String text,int size, Actor actor) {
         createTooltip(text,size);
         this.actor = actor;
@@ -33,11 +33,17 @@ public class Tooltip extends Actor
         this.follow();
     }
     
+    /**
+     * Modifica a localização da tooltip.
+     */
     private void follow()
     {
         this.setLocation(this.actor.getX(),(this.actor.getY()-(this.actor.getImage().getHeight()/2)) );
     }
     
+    /**
+     * Cria a Imagem da Tooltip.
+     */
     private void createTooltip(String text,int size)
     {
         image=new GreenfootImage(" "+text+" ", size,Color.BLACK,myColor);
@@ -45,6 +51,10 @@ public class Tooltip extends Actor
         borderThickness(size/7);
         setImage(image);
     }
+    
+    /**
+     * Cria uma borda para a tooltip
+     */
     private void borderThickness(int thickness)
     {
         for(int i=0; i<thickness ;i++)
@@ -52,6 +62,10 @@ public class Tooltip extends Actor
             image.drawRect(i,i, image.getWidth()-i*2,image.getHeight()-i*2);
         }
     }
+    
+    /**
+     * Remove a tooltip.
+     */
     private void removeTooltip(){
         if (ticks==MAX_TICKS){
             ticks=0;
@@ -59,10 +73,18 @@ public class Tooltip extends Actor
             getWorld().removeObject(this);
         }
     }
+    
+    /**
+     * Modifica Active.
+     */
     public void setActive(boolean state)
     {
         this.active=state;
     }
+    
+    /**
+     * Retorna Active
+     */
     public boolean isActive()
     {
         return active;

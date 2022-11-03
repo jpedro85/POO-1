@@ -1,16 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Pressure_Plate here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Placa de pressao ativada quando o player ou a bola ficam em cima.
  */
 public class Pressure_Plate extends AdvancedActor
 {
     private boolean active;
     private GreenfootImage pad_active;
     private GreenfootImage pad_off;
+    
+    /**
+     * Inicia as variaveis e cria uma imagem para quando ativa.
+     */
     public Pressure_Plate(String text,String filename)
     {
         super(text,CollisionType.NONE,CollisionType.NONE);
@@ -22,9 +23,9 @@ public class Pressure_Plate extends AdvancedActor
     }
 
     /**
-     * Act - do whatever the Pressure_Plate wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Executado a cada tick
      */
+    @Override
     public void act()
     {
         this.check_Actor();
@@ -32,14 +33,19 @@ public class Pressure_Plate extends AdvancedActor
         this.activate();
     }
     
-    @Override
+    /**
+     * Quando o player usa.
+     */
     public void action()
     {
         if(getOneObjectAtOffset(0, 0, Ball.class) == null){
             this.getUser().showTooltip(this.getTooltipText());
         }
     }
-
+    
+    /**
+     *  Verifica e alera a imagem quando esta ativa.
+     */
     public void activate()
     {
         if(isTouching(Ball.class) ){
@@ -59,6 +65,9 @@ public class Pressure_Plate extends AdvancedActor
         }
     }
     
+    /**
+     * Retorna se esta precionada.
+     */
     public boolean isPressed(){
         return this.active;
     }

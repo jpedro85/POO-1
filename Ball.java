@@ -1,17 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Ball here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Um ator para os puzsles.
  */
 public class Ball extends AdvancedActor
 {
     private GreenfootImage img;
     private boolean anima;
     private Players actor2;
-    
+
+    /**
+     * Inicia.
+     */
     public Ball()
     {
         super("Esta bola parece pesada !",CollisionType.NONE , CollisionType.TOTAL);
@@ -19,7 +19,10 @@ public class Ball extends AdvancedActor
         this.setImage(img);
         this.anima = false;
     }
-    
+
+    /**
+     * A cada tick.
+     */
     public void act()
     {
         super.act();
@@ -27,26 +30,34 @@ public class Ball extends AdvancedActor
         this.check_Collision();
         this.check_Actor();
     }
-    
+
+    /**
+     * Quando um players usa.
+     */
     @Override
     public void use(Players actor)
     {
         super.use(actor);
         this.actor2 = actor;
     }
-    
-    @Override
+
+    /**
+     * Ação quando em uso.
+     */
     public void action()
     {
         this.getUser().showTooltip(this.getTooltipText());
         this.anima = !this.anima;
     }
     
+    /**
+     * Animação
+     */
     private void animate()
     {
         if (this.isAnimated())
         {
-             switch(this.actor2.getVision())
+            switch(this.actor2.getVision())
             {
                 case UP:
                     this.setLocation(this.actor2.getX(), this.actor2.getY() - this.actor2.getImage().getHeight()/2 );
@@ -73,6 +84,9 @@ public class Ball extends AdvancedActor
         }
     }
     
+    /**
+     * Retorna está animado.
+     */
     public boolean isAnimated()
     {
         return this.anima;

@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Collision_Actor here.
+ * Class para definir metodos de colisão entre atores.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * O objetivo quaisquer dois actor que nao os player tivesem colisoes entre si, não foi posivel concluir.
  */
 public abstract class Collision_Actor extends Collision
 {
