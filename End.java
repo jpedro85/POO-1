@@ -9,8 +9,7 @@ public class End extends World
     private Button button;
     
     /**
-     * Constructor for objects of class End.
-     * 
+     * Inicica o mundo.
      */
     public End()
     {    
@@ -20,11 +19,18 @@ public class End extends World
         this.start_sound();
     }
     
+    /**
+     * Executado cada tick.
+     */
+    @Override
     public void act()
     {
         this.newGame();
     }
     
+    /**
+     * Verifica se o buttao new game foi clicado.
+     */
     private void newGame()
     {
         if(this.button.isPressed())
@@ -35,13 +41,19 @@ public class End extends World
         }
     }
     
+    /**
+     * Inicia o som.
+     */
     private void start_sound()
     {
         SoundBox.addSound("menu_music.mp3");
         SoundBox.setSoundVolume("menu_music.mp3", Game.getVolume() );
         SoundBox.playLoop_AllSounds();
     }
-
+    
+    /**
+     * Cria a janela end, com as pontuações, tempo e o butao para começar um novo jogo.
+     */
     private void create_window_end()
     {
         this.windowEnd = new Window("janelas\\janela_end2_background.png",680,500);
@@ -72,7 +84,7 @@ public class End extends World
         this.windowEnd.add_Actor(tb_player2_pontos,380, 292);
 
         TextBox tb_player2_chaves = new TextBox( 200 ,30 ,20 , 1,"Chaves : " + String.valueOf( Game.getChavesPlayer2() ) ,UIElement.FONT2_DEFAUT ,UIElement.TEXTCOLOR_DOURADO );
-        tb_player1_chaves.setEditable(false);
+        tb_player2_chaves.setEditable(false);
         this.windowEnd.add_Actor(tb_player2_chaves,380, 326);
         
         TextBox tb_tempo = new TextBox( 120 ,30 ,7 , 1,"TEMPO: ",new Font("Segoe Script",true,false,25) ,Color.BLACK );

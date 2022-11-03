@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
  * Chase nessessário para abrir portas.
@@ -23,6 +23,7 @@ public class Key extends AdvancedActor
     /**
      * Chamado a cada tick.
     */
+    @Override
     public void act()
     {
         check_player();

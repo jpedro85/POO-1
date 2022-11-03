@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Collision_Actor
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collision_Actor\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Class\ para\ definir\ metodos\ de\ colis\u00E3o\ entre\ atores.\r\n\ \r\n\ O\ objetivo\ quaisquer\ dois\ actor\ que\ nao\ os\ player\ tivesem\ colisoes\ entre\ si,\ n\u00E3o\ foi\ posivel\ concluir.\r\n
 comment1.params=
 comment1.target=void\ check_Collision()
 comment2.params=actor

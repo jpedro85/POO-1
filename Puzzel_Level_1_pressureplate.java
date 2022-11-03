@@ -5,7 +5,6 @@ import java.util.ArrayList;
  */
 public class Puzzel_Level_1_pressureplate extends Puzzle 
 {
-    // instance variables - replace the example below with your own
     private boolean halfcomplete;
     private boolean pressure1,pressure2;
     private Pressure_Plate plate1,plate2;

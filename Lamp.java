@@ -1,17 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Lampada here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Objeto que tem uma luz variavel quando está desligado ou ligado
  */
 public class Lamp extends Actor
 {
     private Light light_ligada , light_desligada;
     private GreenfootImage img_off, img_on;
     private boolean state;
-
+    
+    /**
+     * Inicia Luz ligada e Luz Desligada e as imagens do objeto que imete luz.
+     */
     public Lamp(Light light_ligada ,Light light_desligada , String img_off ,String img_on  )
     {
         this.light_ligada = light_ligada;
@@ -21,25 +21,37 @@ public class Lamp extends Actor
         this.state = false;
         this.setImage(this.img_off);
     }
-
+    
+    /**
+     * Muda o estádo da lampada.
+     */
     public void changeState()
     {
         this.state = !this.state;
         this.updateLight();
     }
-
+    
+    /**
+     * Liga a lampada.
+     */
     public void ligar()
     {
         this.state = true;
         this.updateLight();
     }
-
+    
+    /**
+     * Desliga a lampada.
+     */
     public void desligar()
     {
         this.state = false;
         this.updateLight();
     }
-
+    
+    /**
+     * Aletera a luz assoassiada ao estado.
+     */
     public void updateLight()
     {
         if(this.state)
@@ -56,7 +68,10 @@ public class Lamp extends Actor
             this.light_desligada.addToActorWorld(this);     
         }
     }
-
+    
+    /**
+     * Retorna se está ligada.
+     */
     public boolean isligado()
     {
         return this.state;

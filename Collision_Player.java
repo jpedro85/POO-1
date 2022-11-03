@@ -1,14 +1,13 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Collision_Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Define métodos para colisoes entre um ator e um ator player.
  */
 public abstract class Collision_Player extends Collision
 {
-    
+    /**
+     * Verifica com quê que está a culidir e determina a colisão entre os dois.
+     */
     protected void check_Collision()
     {
         this.setActorInRangeList( this.getIntersectingObjects(AdvancedActor.class) ) ;
@@ -33,12 +32,18 @@ public abstract class Collision_Player extends Collision
             }
         }
     }
-
+    
+    /**
+     * Altera a ordem de pintura. Não concluido.
+     */
     protected void Collision_PASSUNDER(Collision actor)
     {     
         this.getWorld().setPaintOrder(Tooltip.class, actor.getClass() , Players.class );
     }
-
+    
+    /**
+     * Altera a ordem de pintura. Não concluido.
+     */
     protected void Collision_PASSHOVER(Collision actor)
     {
         this.getWorld().setPaintOrder(Tooltip.class, Players.class , actor.getClass() );

@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class wall here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Actorcom colisão total com e player e atores.
  */
 public class Wall extends AdvancedActor
 {
@@ -18,11 +15,16 @@ public class Wall extends AdvancedActor
         this.setImage(new GreenfootImage(filename));
     }
     
+    /**
+     * Inicia a super classe advancedActor
+     */
     public Wall()
     {       
         super("",CollisionType.TOTAL,CollisionType.TOTAL);
-       // this.setImage(new GreenfootImage(filename));
     }
     
+    /**
+     * Quando o player usa.
+     */
     public void action(){} 
 }

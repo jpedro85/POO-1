@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/**
+ * Player 2
+ */
 public class Player2 extends Players
 {
     public Player2 ()
@@ -23,6 +25,7 @@ public class Player2 extends Players
      * Act - do whatever the Player2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    @Override
     public void act()
     {
         this.movement("left", "right", "up", "down");

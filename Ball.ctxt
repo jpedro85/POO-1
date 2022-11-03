@@ -1,16 +1,22 @@
 #BlueJ class context
 comment0.target=Ball
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Ball\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Um\ ator\ para\ os\ puzsles.\r\n
 comment1.params=
 comment1.target=Ball()
+comment1.text=\r\n\ Inicia.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ A\ cada\ tick.\r\n
 comment3.params=actor
 comment3.target=void\ use(Players)
+comment3.text=\r\n\ Quando\ um\ players\ usa.\r\n
 comment4.params=
 comment4.target=void\ action()
+comment4.text=\r\n\ A\u00E7\u00E3o\ quando\ em\ uso.\r\n
 comment5.params=
 comment5.target=void\ animate()
+comment5.text=\r\n\ Anima\u00E7\u00E3o\r\n
 comment6.params=
 comment6.target=boolean\ isAnimated()
+comment6.text=\r\n\ Retorna\ est\u00E1\ animado.\r\n
 numComments=7

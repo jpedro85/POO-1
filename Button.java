@@ -1,16 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class Button1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Butao
  */
 public class Button extends UIElement
 {
     private String text;
     private int counter;
-         
+    
+    /**
+     * Inicia as variaveis e cria as imagem necessarias.
+     */
     public Button(Color background,Color textColor, String text)
     {
         this.start_vars();
@@ -38,6 +38,9 @@ public class Button extends UIElement
         this.setImage(this.getBackground_Defaut());
     }
     
+    /**
+     * Overload Inicia as variaveis, usa imagens ja feitas.
+     */
     public Button(String background_defaut, String background_hover)
     {
         this.start_vars();
@@ -47,17 +50,29 @@ public class Button extends UIElement
         
         setImage(this.getBackground_Defaut());
     }
- 
+     
+    /**
+     * Executado em cada tick.
+     */
+    @Override
     public void act()
     {
         check_states();
     }
- 
+     
+    /**
+     * Ação quando se clica. para testes
+     */
+    @Override
     public void mouse_CLick()
     {
         //System.out.println("Button"+ this +" Name: " + getText());
     }
     
+    /**
+     * Animação ao clicar, efeito zoom out e zoom in.
+     */
+    @Override
     protected void on_Animation()
     {
         if(counter <= 6)
@@ -78,10 +93,17 @@ public class Button extends UIElement
             }
     }
    
+    /**
+     * Altera o texto.
+     */
     public void setText(String text)
     {
         setText(text,this.getTexColor() == null ? TEXTCOLOR_DEFAUT: this.getTexColor());
     }
+    
+    /**
+     * Altera o texto.
+     */
     public void setText(String text,Color color)
     {   
         this.text = text;
@@ -106,18 +128,29 @@ public class Button extends UIElement
             };
         }
     }
+    
+    /**
+     * Altera o texto na imagem.
+     */
     private void drawtext(GreenfootImage image,String text,int width,int height,Color color)
     {
         image.setColor(color);
         image.setFont(this.getFont());
         image.drawString(text, width, height);
     }
-        
+    
+    /**
+     * Retorna o texto.
+     */
     public String getText()
     {
         return this.text;
     } 
     
+    /**
+     * Retorna o botao em string.
+     */
+    @Override
     public String toString()
     {
         return "Button: " + super.toString();

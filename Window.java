@@ -1,10 +1,8 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 import java.util.ArrayList;
+
 /**
- * Write a description of class Window here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Cria uma janela onde podemos relacionar UIelements
  */
 public class Window extends Actor
 {

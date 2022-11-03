@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Slider here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Permite modificar um valor arrastando o rato.
  */
 public class Slider extends UIElement
 {
@@ -14,6 +11,9 @@ public class Slider extends UIElement
     private boolean drag;
     double step;
     
+    /**
+     * Cria a imagem de fundo e inicia as variaveis.
+     */
     public Slider(int width,int heigth,int min_value ,int max_value)
     {   
         this.start_vars();
@@ -29,6 +29,9 @@ public class Slider extends UIElement
         this.updateImage();
     }
     
+    /**
+     * Overload inicia as variaveis mas utiliza imagens ja feitas.
+     */
     public Slider(GreenfootImage background,GreenfootImage selected, int min_value ,int max_value)
     {   
         this.start_vars();
@@ -45,6 +48,9 @@ public class Slider extends UIElement
         this.updateImage();
     }
     
+    /**
+     * Cria as imagens
+     */
     private void creat_images(int width,int heigth)
     {
         if(width<100)
@@ -56,16 +62,24 @@ public class Slider extends UIElement
         temp.fillRect(3,(int)((heigth-2)/2) , width-6, 2);
         
         this.setBackground_Defaut( new GreenfootImage(temp) );
-        temp.setColor(Color.BLUE);
+        temp.setColor(this.TEXTCOLOR_DOURADO);
         temp.drawRect(0, 0, width-1,heigth-1);
         this.setBackground_Selected(temp);
     }
     
+    /**
+     * Ação quando se clica.
+     */
+    @Override
     public void mouse_CLick()
     {
         this.last_mouse_x = Greenfoot.getMouseInfo().getX(); 
     }
     
+    /**
+     * Ferifica e atualiza o movimeto
+     */
+    @Override
     protected void check_move()
     {
         super.check_move();
@@ -98,17 +112,28 @@ public class Slider extends UIElement
         }
     }
     
+    /**
+     * Atualiza a imagem.
+     */
+    @Override
     public void update()
     {
         super.update();
         this.updateImage();
     }
     
+    /**
+     * Executado cada tick.
+     */
+    @Override
     public void act()
     {
         this.check_states();
     }
     
+    /**
+     * Cria uma nova imagem com o retangulo numa dada posição.
+     */
     private void updateImage()
     {
         GreenfootImage  image;
@@ -122,6 +147,9 @@ public class Slider extends UIElement
         this.setImage(image);
     }
     
+    /**
+     * Atualiza o valor.
+     */
     private void updateValue()
     {
         if(this.p_x == 3)
@@ -132,11 +160,17 @@ public class Slider extends UIElement
             this.value = this.min_value + (int)((double)this.step*(this.p_x-3));
     }
     
+    /**
+     * retorna o valor.
+     */
     public int getValue()
     {
         return this.value;
     }
     
+    /**
+     * Atribui um valor.
+     */
     public void setValue(int value)
     {
         if(value >= this.min_value && value <= this.max_value)
@@ -147,11 +181,18 @@ public class Slider extends UIElement
         }
     }
     
+    /**
+     * Retorna se o rato esta a fazer drag sobre o UIElement
+     */
     public boolean isDrag()
     {
         return this.drag; 
     }
     
+    /**
+     * Retorna uma string que representa o objeto.
+     */
+    @Override
     public String toString()
     {
         return "Slider: " + super.toString();

@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Light here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Luz objeto com uma animação pintado antes da cortina preta.
  */
 public class Light extends Actor
 {
@@ -12,7 +9,10 @@ public class Light extends Actor
     private int counter , counterDelay, delay;
     private String base_name;
     private int n_img;
-
+    
+    /**
+     * Inicia as imagens n_img é numero de imagens.
+     */
     public Light(String base_name,int n_img)
     {
         this.counter = 0;
@@ -24,24 +24,36 @@ public class Light extends Actor
         this.loadAnimation( this.base_name, n_img );
         this.setImage( animacao_list.get(0) );
     }
-
+    
+    /**
+     * Chamado cada tick.
+     */
     public void act()
     {
         this.animate();   
     }
     
+    /**
+     * Adiciona ao mundo tendo em conta a posição do ator que é iluminado.
+     */
     public void addToActorWorld(Actor actor)
     {
         if(this.getWorld() == null && actor.getWorld() != null )
             actor.getWorld().addObject(this,actor.getX(), actor.getY());        
     }
     
+    /**
+     * Remove do mundo.
+     */
     public void removeFromWorld()
     {
         if(this.getWorld() != null )
             this.getWorld().removeObject(this);   
     }
     
+    /**
+     * Altera a posição tendo em conta a posição do ator que é iluminado.
+     */
     public void update_Location(int x, int y,Actor actor)
     {
         if(this.getWorld() != null)
@@ -49,14 +61,20 @@ public class Light extends Actor
         else
             this.addToActorWorld(actor);
     }
-
+    
+    /**
+     * Carrega as imagens para um arraylist.
+     */
     protected void loadAnimation(String base_name ,int n_img)
     {
         for(int i = 0; i < n_img;i++){
             this.animacao_list.add( new GreenfootImage( base_name+i+".png") );
         }
     }
-
+    
+    /**
+     * Faz a animação.
+     */
     protected void animate()
     {
         if(this.animacao_list != null)
@@ -79,23 +97,36 @@ public class Light extends Actor
         }
     }
     
+    /**
+     * Retorna a lista com as imagens.
+     */
     public ArrayList<GreenfootImage> getAnimacao_list()
     {
         return this.animacao_list;
     }
-
+    
+    /**
+     * Altera o delay da animação.
+     */
     public void setDelay(int delay)
     {
         this.delay = delay > 0 ? delay : 1;
     }
     
+    /**
+     * Cria e retorno uma cópia deste objeto.
+     */
+    //@Overide
     public Light clone()
     {
         return new Light(this.base_name,this.n_img);
     }
     
+    /**
+     * Retorna o objeto em string.
+     */
     public String toString()
     {
-        return "Base Name: " + this.base_name + " NUmero de imagesn: " + this.n_img ;
+        return "Base Name: " + this.base_name + " Numero de imagesn: " + this.n_img ;
     }
 }
