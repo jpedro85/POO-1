@@ -171,7 +171,7 @@ public class Level_1 extends World implements InterfaceAreaSound
         this.addObject( new Actor_Decor("decors\\dumbells.png") , 1410, 315);
         this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 155);
         this.addObject( new Actor_Decor("decors\\bench.png") , 1550, 240);
-        this.addObject( new Actor_Decor("decors\\phone.png") , 1100, 290);
+        this.addObject( new Actor_Decor("decors\\phone.png") , 1070, 290);
         this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 505);
         this.addObject( new Actor_Decor("decors\\ddoor.png") , 200, 383);
         this.addObject( new Wall("decors\\coffe.png") , 680, 70);
