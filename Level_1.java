@@ -193,28 +193,28 @@ public class Level_1 extends World implements InterfaceAreaSound
         //colocando chuva
         addObject( new Rain("ambiente\\chuva\\chuva_",3,2) , 850, 450);
         //sound wood
-        this.b1 = new AreaSound(197,45,560,834,"walking_wood.mp3");
-        this.b2 = new AreaSound(895,77,554,217,"walking_wood.mp3");
-        this.b3 = new AreaSound(942,630,459,178,"walking_wood.mp3");
+        this.b1 = new AreaSound(197,45,560,834,"walking_wood.wav");
+        this.b2 = new AreaSound(895,77,554,217,"walking_wood.wav");
+        this.b3 = new AreaSound(942,630,459,178,"walking_wood.wav");
         //sound stone
-        this.passeio1 = new AreaSound(4,430,186,48,"walking_stone.mp3");
-        this.passeio2 = new AreaSound(762,430,935,48,"walking_stone.mp3");
-        this.passeio3 = new AreaSound(1152,302,40,122,"walking_stone.mp3");
-        this.passeio4 = new AreaSound(1152,478,40,144,"walking_stone.mp3");
+        this.passeio1 = new AreaSound(4,430,186,48,"walking_stone.wav"); 
+        this.passeio2 = new AreaSound(762,430,935,48,"walking_stone.wav");
+        this.passeio3 = new AreaSound(1152,302,40,122,"walking_stone.wav");
+        this.passeio4 = new AreaSound(1152,478,40,144,"walking_stone.wav");
         //sound wood
-        this.grass1 = new  AreaSound(0,0,190,427,"walking_grass.mp3");
-        this.grass2 = new  AreaSound(0,475,190,427,"walking_grass.mp3");
-        this.grass3 = new  AreaSound(759,0,133,427,"walking_grass.mp3");
-        this.grass4 = new  AreaSound(759,475,178,427,"walking_grass.mp3");
-        this.grass5 = new  AreaSound(938,813,468,150,"walking_grass.mp3");
-        this.grass6 = new  AreaSound(892,0,560,70,"walking_grass.mp3");
-        this.grass7 = new  AreaSound(1452,0,427,413,"walking_grass.mp3");
-        this.grass8 = new  AreaSound(1406,475,293,424,"walking_grass.mp3");
+        this.grass1 = new  AreaSound(0,0,190,427,"walking_grass.wav");
+        this.grass2 = new  AreaSound(0,475,190,427,"walking_grass.wav");
+        this.grass3 = new  AreaSound(759,0,133,427,"walking_grass.wav");
+        this.grass4 = new  AreaSound(759,475,178,427,"walking_grass.wav");
+        this.grass5 = new  AreaSound(938,813,468,150,"walking_grass.wav");
+        this.grass6 = new  AreaSound(892,0,560,70,"walking_grass.wav");
+        this.grass7 = new  AreaSound(1452,0,427,413,"walking_grass.wav");
+        this.grass8 = new  AreaSound(1406,475,293,424,"walking_grass.wav");
         //sound grass
-        this.grass9 = new  AreaSound(891,297,254,129,"walking_grass.mp3");
-        this.grass10 = new  AreaSound(1196,297,254,129,"walking_grass.mp3");
-        this.grass11 = new  AreaSound(938,475,210,150,"walking_grass.mp3");
-        this.grass12 = new  AreaSound(1195,475,210,150,"walking_grass.mp3");
+        this.grass9 = new  AreaSound(891,297,254,129,"walking_grass.wav");
+        this.grass10 = new  AreaSound(1196,297,254,129,"walking_grass.wav");
+        this.grass11 = new  AreaSound(938,475,210,150,"walking_grass.wav");
+        this.grass12 = new  AreaSound(1195,475,210,150,"walking_grass.wav");
 
         this.change = new ChangeWorld(200,10);
         addObject(change,1700, 450);
